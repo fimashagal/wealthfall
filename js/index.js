@@ -55,7 +55,7 @@
             this.matter.world.setBounds();
 
             for (let i = 0; i < 42; i += 1){
-                this.matter.add.image(Phaser.Math.Between(0, 768), Phaser.Math.Between(-200, -100), 'sugar');
+                this.matter.add.image(Phaser.Math.Between(0, 768), 0, 'sugar');
             }
 
             this.matter.add.mouseSpring();
