@@ -67,6 +67,7 @@
 
         function update() {
             for(let gem of this.gems){
+                console.log(gem.position.y);
                 if(gem.position.y > ((innerHeight * 2) / 4)*3){
                     gem.position.y = 0;
                 }
