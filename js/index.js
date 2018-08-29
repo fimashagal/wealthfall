@@ -39,7 +39,8 @@
             },
             scene: {
                 preload,
-                create
+                create,
+                update
             }
         });
 
@@ -53,15 +54,26 @@
             let {innerWidth, innerHeight} = window;
             document.querySelector('.spinner').style.display = 'none';
             this.matter.world.setBounds();
-
+            this.gems = [];
             for (let i = 0; i < 42; i += 1){
-                this.matter.add.image(Phaser.Math.Between(0, 768), 0, 'sugar');
+                this.gems.push(this.matter.add.image(Phaser.Math.Between(0, 768), 0, 'sugar'));
             }
 
             this.matter.add.mouseSpring();
         }
 
         create = create.bind(game);
+
+
+        function update() {
+            for(let gem of this.gems){
+                if(gem.position.y > ((innerHeight * 2) / 4)*3){
+                    gem.position.y = 0;
+                }
+            }
+        }
+
+        update = update.bind(game);
 
 
     }
