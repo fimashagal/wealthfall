@@ -26,7 +26,7 @@
             width: innerWidth,
             height: innerHeight,
             backgroundColor: '#222222',
-            parent: 'sugar',
+            parent: 'wealthfall',
             physics: {
                 default: 'matter',
                 matter: {
