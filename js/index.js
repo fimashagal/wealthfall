@@ -25,7 +25,7 @@
             type: Phaser.WEBGL,
             width: innerWidth,
             height: innerHeight,
-            backgroundColor: '#ee777b',
+            backgroundColor: '#222222',
             parent: 'sugar',
             physics: {
                 default: 'matter',
@@ -53,15 +53,7 @@
             let {innerWidth, innerHeight} = window;
             document.querySelector('.spinner').style.display = 'none';
             this.matter.world.setBounds();
-            let texture = this.textures.createCanvas('gradient', innerWidth, innerHeight);
-            let grd = texture.context.createLinearGradient(innerWidth, innerHeight, 0, 0);
-            grd.addColorStop(0, '#5a4875');
-            grd.addColorStop(.5, '#eb777b');
-            grd.addColorStop(1, '#ffac6e',);
-            texture.context.fillStyle = grd;
-            texture.context.fillRect(0, 0, innerWidth, innerHeight);
-            texture.refresh();
-            this.add.image(innerWidth/2, innerHeight/2, 'gradient');
+
             for (let i = 0; i < 32; i += 1){
                 this.matter.add.image(Phaser.Math.Between(150, 250), Phaser.Math.Between(150, 250), 'sugar');
             }

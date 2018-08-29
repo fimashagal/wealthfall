@@ -33,10 +33,10 @@
       "sizes": "48x48"
     }
   ],
-  "start_url": "https://frosty-perlman-97b267.netlify.com",
+  "start_url": "https://nifty-bassi-8b8505.netlify.com",
   "background_color": "#222222",
   "display": "standalone",
   "scope": "/",
-  "theme_color": "#111111",
+  "theme_color": "#222222",
   "orientation": "portrait"
 }

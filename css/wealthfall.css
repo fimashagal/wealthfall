@@ -1,0 +1,11 @@
+#wealthfall {
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+    background: #222222;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    color:#fff;
+}
