@@ -31,7 +31,7 @@
                 default: 'matter',
                 matter: {
                     gravity: {
-                        y: .75
+                        y: .3
                     },
                     enableSleep: true,
                     debug: false
@@ -55,7 +55,7 @@
             document.querySelector('.spinner').style.display = 'none';
             this.matter.world.setBounds();
             this.gems = [];
-            for (let i = 0; i < 42; i += 1){
+            for (let i = 0; i < 64; i += 1){
                 this.gems.push(this.matter.add.image(Phaser.Math.Between(0, 768), 0, 'sugar'));
             }
 
