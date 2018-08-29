@@ -24,9 +24,9 @@
         const game = new Phaser.Game({
             type: Phaser.WEBGL,
             width: 768,
-            height: innerHeight,
+            height: innerHeight*2,
             backgroundColor: '#222222',
-            parent: 'wealthfall',
+            parent: 'canvas',
             physics: {
                 default: 'matter',
                 matter: {
