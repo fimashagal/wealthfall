@@ -31,7 +31,7 @@
                 default: 'matter',
                 matter: {
                     gravity: {
-                        y: .2
+                        y: .4
                     },
                     enableSleep: true,
                     debug: false
@@ -55,7 +55,7 @@
             this.matter.world.setBounds();
 
             for (let i = 0; i < 42; i += 1){
-                this.matter.add.image(Phaser.Math.Between(0, 768), Phaser.Math.Between(-100, 0), 'sugar');
+                this.matter.add.image(Phaser.Math.Between(0, 768), Phaser.Math.Between(-200, -100), 'sugar');
             }
 
             this.matter.add.mouseSpring();
