@@ -65,9 +65,11 @@
 
 
         function update() {
+            const quartHeight = (innerHeight * 2) / 4;
             for(let gem of this.gems){
-                if(gem.y > ((innerHeight * 2) / 4)*3){
-                    gem.y = ((innerHeight * 2) / 4) - 50;
+                if(gem.y > quartHeight * 3){
+                    gem.x = Phaser.Math.Between(0, 768);
+                    gem.y = Phaser.Math.Between(0, (quartHeight - 50));
                 }
             }
         }
