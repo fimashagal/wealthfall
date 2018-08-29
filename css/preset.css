@@ -1,0 +1,9 @@
+html,
+body {
+    min-height: 100vh;
+}
+
+body {
+    overscroll-behavior-y: contain;
+    font-family: sans-serif;
+}
