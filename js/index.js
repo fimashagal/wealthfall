@@ -55,7 +55,7 @@
             this.matter.world.setBounds();
             this.gems = [];
             for (let i = 0; i < 50; i += 1){
-                this.gems.push(this.matter.add.image(Phaser.Math.Between(0, 768), 0, 'sugar'));
+                this.gems.push(this.matter.add.image(Phaser.Math.Between(0, 768), Phaser.Math.Between(0, (((innerHeight * 2) / 4) - 50)), 'sugar'));
             }
 
             this.matter.add.mouseSpring();
