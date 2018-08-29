@@ -23,7 +23,7 @@
         let {innerWidth, innerHeight} = window;
         const game = new Phaser.Game({
             type: Phaser.WEBGL,
-            width: innerWidth,
+            width: 768,
             height: innerHeight,
             backgroundColor: '#222222',
             parent: 'wealthfall',
@@ -54,8 +54,8 @@
             document.querySelector('.spinner').style.display = 'none';
             this.matter.world.setBounds();
 
-            for (let i = 0; i < 32; i += 1){
-                this.matter.add.image(Phaser.Math.Between(150, 250), Phaser.Math.Between(150, 250), 'sugar');
+            for (let i = 0; i < 64; i += 1){
+                this.matter.add.image(Phaser.Math.Between(0, 768), 0, 'sugar');
             }
 
             this.matter.add.mouseSpring();
