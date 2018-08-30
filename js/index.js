@@ -82,7 +82,7 @@
                 ).setInteractive();
                 gem.on('pointerdown', function () {
                     score.add(10);
-                    reposition(gem);
+                    this.y = Phaser.Math.Between(0, (quartHeight - 80));
                 });
                 this.gems.push(gem);
             }
