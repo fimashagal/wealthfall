@@ -110,7 +110,7 @@
 
                 wealthItem = this.matter.add.image(
                     Phaser.Math.Between(47, 721),
-                    Phaser.Math.Between(80, (((innerHeight * 2) / 4) - 80)),
+                    Phaser.Math.Between(80, quartHeight*3),
                     image
                 ).setInteractive();
                 wealthItem.setDataEnabled();
