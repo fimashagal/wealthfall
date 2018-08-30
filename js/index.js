@@ -3,7 +3,6 @@
 
     swInit();
 
-
     function swInit() {
         if (!"serviceWorker" in navigator) return;
         window.addEventListener("load", function () {
@@ -22,6 +21,21 @@
     function phaserInit() {
         let {innerWidth, innerHeight} = window;
         let width = innerWidth < 768 ? innerWidth : 768;
+
+        const score = {
+            el: document.querySelector('.score'),
+            value: 0,
+            add(value){
+                this.value += value;
+                this.update();
+                return this;
+            },
+            update(){
+                this.el.innerText = this.value;
+                return this;
+            }
+        };
+
         const game = new Phaser.Game({
             type: Phaser.WEBGL,
             width: width,
@@ -53,6 +67,7 @@
 
         function create(){
             document.querySelector('.spinner').style.display = 'none';
+            score.update();
             this.matter.world.setBounds();
             this.gems = [];
             let gem;
@@ -63,7 +78,7 @@
                     'sugar'
                 ).setInteractive();
                 gem.on('pointerdown', function () {
-                    console.log(gem.angle);
+                    score.add(1);
                 });
                 this.gems.push(gem);
             }
