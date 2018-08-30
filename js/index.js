@@ -22,6 +22,33 @@
         let {innerWidth, innerHeight} = window;
         let width = innerWidth < 768 ? innerWidth : 768;
         const quartHeight = (innerHeight * 2) / 4;
+        const wealth = {
+            0: {
+                image: "gem-0",
+                scoreProfit: 10,
+                scoreDamage: -5
+            },
+            1: {
+                image: "gem-1",
+                scoreProfit: 12,
+                scoreDamage: -6
+            },
+            2: {
+                image: "gem-2",
+                scoreProfit: 14,
+                scoreDamage: -7
+            },
+            3: {
+                image: "gem-3",
+                scoreProfit: 16,
+                scoreDamage: -8
+            },
+            4: {
+                image: "gem-4",
+                scoreProfit: 18,
+                scoreDamage: -9
+            }
+        };
 
         const score = {
             el: document.querySelector('.score'),
@@ -80,16 +107,23 @@
             this.gems = [];
             let gem;
             for (let i = 0; i < 25; i += 1){
+                let gemIndex = Phaser.Math.Between(0, 4);
+                let {image, scoreProfit, scoreDamage} = wealth[gemIndex];
+
                 gem = this.matter.add.image(
                     Phaser.Math.Between(47, 721),
                     Phaser.Math.Between(80, (((innerHeight * 2) / 4) - 80)),
-                    `gem-${Phaser.Math.Between(0, 4)}`
+                    image
                 ).setInteractive();
+                gem.setDataEnabled();
+                gem.data.set('profit', scoreProfit);
+                gem.data.set('damage', scoreDamage);
                 gem.on('pointerdown', function () {
-                    score.add(10);
+                    score.add(gem.data.get('profit'));
                     this.x = Phaser.Math.Between(47, 721);
                     this.y = Phaser.Math.Between(0, (quartHeight - 80));
                 });
+
                 this.gems.push(gem);
             }
         }
@@ -101,7 +135,7 @@
             for(let gem of this.gems){
                 gem.angle = 0;
                 if(gem.y >= (quartHeight * 4) - 80){
-                    score.add(-5);
+                    score.add(gem.data.get('damage'));
                     gem.x = Phaser.Math.Between(47, 721);
                     gem.y = Phaser.Math.Between(0, (quartHeight - 80));
                 }
