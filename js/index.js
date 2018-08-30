@@ -91,13 +91,14 @@
         function update() {
             const quartHeight = (innerHeight * 2) / 4;
             for(let gem of this.gems){
-                gem.angle = 0;
-                if(gem.y > (quartHeight * 3) + 50){
-                    score.add(-2);
-                    gem.x = Phaser.Math.Between(50, 718);
-                    gem.y = Phaser.Math.Between(50, (quartHeight - 50));
+                if(gem && typeof gem !== "undefined") {
+                    gem.angle = 0;
+                    if(gem.y > (quartHeight * 3) + 50){
+                        score.add(-2);
+                        gem.x = Phaser.Math.Between(50, 718);
+                        gem.y = Phaser.Math.Between(50, (quartHeight - 50));
+                    }
                 }
-
             }
         }
 
