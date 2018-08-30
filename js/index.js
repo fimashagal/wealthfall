@@ -65,10 +65,12 @@
                 gem.on('pointerdown', function () {
                     console.log(this);
                 });
-                this.physics.add.collider(gem);
                 this.gems.push(gem);
             }
+
+            this.physics.add.collider([this.gems]);
         }
+
 
         create = create.bind(game);
 
