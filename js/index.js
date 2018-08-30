@@ -54,13 +54,13 @@
             let gem;
             for (let i = 0; i < 24; i += 1){
                 gem = this.add.image(
-                    Phaser.Math.Between(0, 768),
-                    Phaser.Math.Between(0, (((innerHeight * 2) / 4) - 50)),
+                    Phaser.Math.Between(25, 743),
+                    Phaser.Math.Between(25, (((innerHeight * 2) / 4) - 50)),
                     'sugar'
                 ).setInteractive();
                 this.physics.add.existing(gem, false);
-                gem.body.setVelocity(0, 180);
-                gem.body.setBounce(1, 1);
+                gem.body.setVelocity(0, 90);
+                gem.body.setBounce(25, 25);
                 gem.body.setCollideWorldBounds(true);
                 gem.on('pointerdown', function () {
                     console.log(this);
