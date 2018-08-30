@@ -80,7 +80,7 @@
                     Phaser.Math.Between(50, (((innerHeight * 2) / 4) - 50)),
                     'sugar'
                 ).setInteractive();
-                gem.on('pointerdown', function (){pointerHandler(this)});
+                gem.on('pointerdown', function (){pointerHandler(gem)});
                 this.gems.push(gem);
             }
         }
@@ -93,13 +93,9 @@
             for(let gem of this.gems){
                 gem.angle = 0;
                 if(gem.y > (quartHeight * 3) + 50){
-                    console.log(gem.alpha);
-                    if(gem.alpha === 1) {
-                        score.add(-2);
-                    }
+                    score.add(-2);
                     gem.x = Phaser.Math.Between(50, 718);
                     gem.y = Phaser.Math.Between(50, (quartHeight - 50));
-                    gem.alpha = 1;
                 }
 
             }
