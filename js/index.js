@@ -63,7 +63,7 @@
                     'sugar'
                 );
                 gem.on('pointerdown', function () {
-                    console.log(this);
+                    alert(1);
                 });
                 this.gems.push(gem);
             }
