@@ -66,6 +66,7 @@
             this.load.image('gem-1', './../assets/images/gem.1.png');
             this.load.image('gem-2', './../assets/images/gem.2.png');
             this.load.image('gem-3', './../assets/images/gem.3.png');
+            this.load.image('gem-4', './../assets/images/gem.4.png');
         }
 
         preload = preload.bind(game);
@@ -81,7 +82,7 @@
                 gem = this.matter.add.image(
                     Phaser.Math.Between(47, 721),
                     Phaser.Math.Between(80, (((innerHeight * 2) / 4) - 80)),
-                    `gem-${Phaser.Math.Between(0, 3)}`
+                    `gem-${Phaser.Math.Between(0, 4)}`
                 ).setInteractive();
                 gem.on('pointerdown', function () {
                     score.add(10);
