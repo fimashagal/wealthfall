@@ -90,11 +90,14 @@
 
         function preload(){
             let pathGem = index => `./../assets/images/gem.${index}.png`;
-            this.load.image('gem-0', pathGem(0));
-            this.load.image('gem-1', pathGem(1));
-            this.load.image('gem-2', pathGem(2));
-            this.load.image('gem-3', pathGem(3));
-            this.load.image('gem-4', pathGem(4));
+            for(let i = 0; i < 5; i++){
+                this.load.image(`gem-${i}`, pathGem(0));
+            }
+
+            // this.load.image('gem-1', pathGem(1));
+            // this.load.image('gem-2', pathGem(2));
+            // this.load.image('gem-3', pathGem(3));
+            // this.load.image('gem-4', pathGem(4));
         }
 
         preload = preload.bind(game);
