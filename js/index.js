@@ -102,9 +102,9 @@
                     }
                     gem.x = Phaser.Math.Between(50, 718);
                     gem.y = Phaser.Math.Between(50, (quartHeight - 50));
-
+                    gem.alpha = 1;
                 }
-                gem.alpha = 1;
+
             }
         }
 
