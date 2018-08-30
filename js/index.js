@@ -81,8 +81,11 @@
                     Phaser.Math.Between(50, (((innerHeight * 2) / 4) - 50)),
                     'sugar'
                 ).setInteractive();
+                gem.setDataEnabled();
+                gem.data.set('active', true);
                 gem.on('pointerdown', function () {
                     this.alpha = 0;
+                    this.data.set('active', false);
                     score.add(10);
                 });
                 this.gems.push(gem);
@@ -97,6 +100,9 @@
             for(let gem of this.gems){
                 gem.angle = 0;
                 if(gem.y > (quartHeight * 3) + 50){
+                    if(this.data.get('active') === true){
+                        score.add(-2);
+                    }
                     if(gem.alpha === 0) gem.alpha = 1;
                     reposition(gem);
                 }
@@ -108,6 +114,7 @@
 
             gem.x = Phaser.Math.Between(50, 718);
             gem.y = Phaser.Math.Between(50, (quartHeight - 50));
+            gem.data.set('active', true);
         }
 
         update = update.bind(game);
