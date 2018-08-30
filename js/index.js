@@ -98,6 +98,7 @@
 
                 if(gem.y > (quartHeight * 3) + 50){
                     if(gem.alpha === 1) {
+                        console.log(gem);
                         score.add(-2);
                     }
                     gem.x = Phaser.Math.Between(50, 718);
