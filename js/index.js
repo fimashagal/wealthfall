@@ -110,7 +110,7 @@
 
                 wealthItem = this.matter.add.image(
                     Phaser.Math.Between(47, 721),
-                    Phaser.Math.Between(50, (((innerHeight * 2) / 4) - 50)),
+                    Phaser.Math.Between(80, (((innerHeight * 2) / 4) - 80)),
                     image
                 ).setInteractive();
                 wealthItem.setDataEnabled();
@@ -119,7 +119,7 @@
                 wealthItem.on('pointerdown', function () {
                     score.add(wealthItem.data.get('profit'));
                     this.x = Phaser.Math.Between(47, 721);
-                    this.y = Phaser.Math.Between(0, (quartHeight - 50));
+                    this.y = Phaser.Math.Between(0, (quartHeight - 80));
                 });
 
                 this.wealth.push(wealthItem);
@@ -132,10 +132,10 @@
         function update() {
             for(let wealthItem of this.wealth){
                 wealthItem.angle = 0;
-                if(wealthItem.y >= (quartHeight * 4) - 50){
+                if(wealthItem.y >= (quartHeight * 4) - 80){
                     score.add(wealthItem.data.get('damage'));
                     wealthItem.x = Phaser.Math.Between(47, 721);
-                    wealthItem.y = Phaser.Math.Between(0, (quartHeight - 50));
+                    wealthItem.y = Phaser.Math.Between(0, (quartHeight - 80));
                 }
 
             }
