@@ -74,7 +74,7 @@
             this.matter.world.setBounds();
             this.gems = [];
             let gem;
-            for (let i = 0; i < 25; i += 1){
+            for (let i = 0; i < 20; i += 1){
                 gem = this.matter.add.image(
                     Phaser.Math.Between(47, 721),
                     Phaser.Math.Between(80, (((innerHeight * 2) / 4) - 80)),
@@ -82,7 +82,7 @@
                 ).setInteractive();
                 gem.on('pointerdown', function () {
                     score.add(10);
-                    this.y = Phaser.Math.Between(0, (quartHeight - 80));
+                    reposition(gem);
                 });
                 this.gems.push(gem);
             }
