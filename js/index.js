@@ -69,7 +69,7 @@
             type: Phaser.WEBGL,
             width: width,
             height: innerHeight * 2,
-            backgroundColor: '#222222',
+            backgroundColor: '#0c0b11',
             parent: 'canvas',
             physics: {
                 default: 'matter',
