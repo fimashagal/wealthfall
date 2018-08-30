@@ -21,10 +21,11 @@
 
     function phaserInit() {
         let {innerWidth, innerHeight} = window;
+        let width = innerWidth < 768 ? innerWidth : 768;
         const game = new Phaser.Game({
             type: Phaser.WEBGL,
-            width: 768,
-            height: innerHeight*2,
+            width: width,
+            height: innerHeight * 2,
             backgroundColor: '#222222',
             parent: 'canvas',
             physics: {
