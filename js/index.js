@@ -95,10 +95,11 @@
         function update() {
             for(let gem of this.gems){
                 gem.angle = 0;
-                if(gem.y >= (quartHeight * 4)-50){
-                    alert(gem.y);
-                    reposition(gem);
+                if(gem.body.y >= (quartHeight * 4)-50){
+                    console.log(gem.body.y);
                     score.add(-5);
+                    reposition(gem);
+
 
                 }
 
