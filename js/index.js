@@ -93,6 +93,7 @@
             for(let gem of this.gems){
                 if(gem && typeof gem !== "undefined") {
                     gem.angle = 0;
+
                     if(gem.y > (quartHeight * 3) + 50){
                         score.add(-2);
                         gem.x = Phaser.Math.Between(50, 718);
