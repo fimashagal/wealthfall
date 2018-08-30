@@ -95,10 +95,9 @@
             const quartHeight = (innerHeight * 2) / 4;
             for(let gem of this.gems){
                 gem.angle = 0;
-
                 if(gem.y > (quartHeight * 3) + 50){
+                    console.log(gem.alpha);
                     if(gem.alpha === 1) {
-                        console.log(gem);
                         score.add(-2);
                     }
                     gem.x = Phaser.Math.Between(50, 718);
