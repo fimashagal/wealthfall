@@ -32,12 +32,7 @@
                 }
                 return this;
             },
-            update(progress){
-                this.el.classList.add(progress === true ? "receives" : "heat");
-                this.el.onanimationend = () => {
-                    this.el.classList.remove("heat");
-                    this.el.classList.remove("receives");
-                };
+            update(){
                 this.el.innerText = this.value;
                 return this;
             }
@@ -74,7 +69,6 @@
 
         function create(){
             document.querySelector('.spinner').style.display = 'none';
-            score.update();
             this.matter.world.setBounds();
             this.gems = [];
             let gem;
@@ -86,7 +80,7 @@
                 ).setInteractive();
                 gem.on('pointerdown', function () {
                     this.alpha = 0;
-                    score.add(1);
+                    score.add(2);
                 });
                 this.gems.push(gem);
             }

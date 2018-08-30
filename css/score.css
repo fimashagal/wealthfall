@@ -3,21 +3,5 @@
     pointer-events: none;
     font-size: 2em;
     text-shadow: 0 1px 0 #000000;
-    transition: all .2s linear;
-    transform: scale(1, 1);
 }
-
-.score.receives,
-.score.heat {
-    transform: scale(1.5, 1.5);
-}
-
-.score.receives {
-    color: #00ff08;
-}
-
-.score.heat {
-    color: #ff3e00;
-}
-
 
