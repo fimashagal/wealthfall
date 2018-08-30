@@ -29,10 +29,13 @@
             backgroundColor: '#222222',
             parent: 'canvas',
             physics: {
-                default: 'arcade',
-                arcade: {
-                    debug: true,
-                    gravity: { y: 20 }
+                default: 'matter',
+                matter: {
+                    gravity: {
+                        y: .45
+                    },
+                    enableSleep: true,
+                    debug: false
                 }
             },
             scene: {
@@ -50,27 +53,23 @@
 
         function create(){
             document.querySelector('.spinner').style.display = 'none';
+            this.matter.world.setBounds();
             this.gems = [];
             let gem;
             for (let i = 0; i < 24; i += 1){
-                gem = this.add.image(
-                    Phaser.Math.Between(25, 743),
-                    Phaser.Math.Between(25, (((innerHeight * 2) / 4) - 50)),
+                gem = this.matter.add.image(
+                    Phaser.Math.Between(0, 768),
+                    Phaser.Math.Between(0, (((innerHeight * 2) / 4) - 50)),
                     'sugar'
                 ).setInteractive();
-                this.physics.add.existing(gem, false);
-                gem.body.setVelocity(0, 90);
-                gem.body.setBounce(25, 25);
-                gem.body.setCollideWorldBounds(true);
                 gem.on('pointerdown', function () {
-                    console.log(this);
+                    console.log(gem);
                 });
                 this.gems.push(gem);
             }
 
-            this.physics.add.collider([this.gems]);
+            this.matter.add.mouseSpring();
         }
-
 
         create = create.bind(game);
 
