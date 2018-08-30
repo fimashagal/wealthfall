@@ -67,8 +67,6 @@
                 });
                 this.gems.push(gem);
             }
-
-            this.matter.add.mouseSpring();
         }
 
         create = create.bind(game);
