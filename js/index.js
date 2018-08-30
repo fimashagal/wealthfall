@@ -62,7 +62,7 @@
         });
 
         function preload(){
-            this.load.image('sugar', './../assets/images/sugar.png');
+            this.load.image('gem', './../assets/images/gem.png');
         }
 
         preload = preload.bind(game);
@@ -78,7 +78,7 @@
                 gem = this.matter.add.image(
                     Phaser.Math.Between(50, 718),
                     Phaser.Math.Between(50, (((innerHeight * 2) / 4) - 50)),
-                    'sugar'
+                    'gem'
                 ).setInteractive();
                 gem.on('pointerdown', function () {
                     score.add(10);
