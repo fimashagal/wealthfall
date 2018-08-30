@@ -62,16 +62,11 @@
                     Phaser.Math.Between(0, (((innerHeight * 2) / 4) - 50)),
                     'sugar'
                 );
-                gem.on('pointerdown', function () {
-                    alert(1);
-                });
                 this.input.on('pointerdown', function (pointer) {
-                    alert(pointer);
+                    console.log(pointer);
                 }, this);
                 this.gems.push(gem);
             }
-
-            this.matter.add.mouseSpring();
         }
 
         create = create.bind(game);
