@@ -62,11 +62,12 @@
         });
 
         function preload(){
-            this.load.image('gem-0', './../assets/images/gem.0.png');
-            this.load.image('gem-1', './../assets/images/gem.1.png');
-            this.load.image('gem-2', './../assets/images/gem.2.png');
-            this.load.image('gem-3', './../assets/images/gem.3.png');
-            this.load.image('gem-4', './../assets/images/gem.4.png');
+            let pathGem = index => `./../assets/images/gem.${index}.png`;
+            this.load.image('gem-0', pathGem(0));
+            this.load.image('gem-1', pathGem(1));
+            this.load.image('gem-2', pathGem(2));
+            this.load.image('gem-3', pathGem(3));
+            this.load.image('gem-4', pathGem(4));
         }
 
         preload = preload.bind(game);
@@ -78,7 +79,7 @@
             this.matter.world.setBounds();
             this.gems = [];
             let gem;
-            for (let i = 0; i < 20; i += 1){
+            for (let i = 0; i < 25; i += 1){
                 gem = this.matter.add.image(
                     Phaser.Math.Between(47, 721),
                     Phaser.Math.Between(80, (((innerHeight * 2) / 4) - 80)),
