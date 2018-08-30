@@ -62,7 +62,9 @@
         });
 
         function preload(){
-            this.load.image('gem', './../assets/images/gem.png');
+            this.load.image('gem-0', './../assets/images/gem.0.png');
+            this.load.image('gem-1', './../assets/images/gem.1.png');
+            this.load.image('gem-2', './../assets/images/gem.2.png');
         }
 
         preload = preload.bind(game);
@@ -78,7 +80,7 @@
                 gem = this.matter.add.image(
                     Phaser.Math.Between(47, 721),
                     Phaser.Math.Between(80, (((innerHeight * 2) / 4) - 80)),
-                    'gem'
+                    `gem-${Phaser.Math.Between(0, 2)}`
                 ).setInteractive();
                 gem.on('pointerdown', function () {
                     score.add(10);
