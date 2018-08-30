@@ -81,7 +81,7 @@
                     'sugar'
                 ).setInteractive();
                 gem.on('pointerdown', function () {
-                    gem.alpha = 0;
+                    this.alpha = 0;
                     score.add(10);
                 });
                 this.gems.push(gem);
