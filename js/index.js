@@ -31,7 +31,7 @@
             1: {
                 image: "wealth-1",
                 scoreProfit: 12,
-                scoreDamage: -7
+                scoreDamage: -5
             },
             2: {
                 image: "wealth-2",
