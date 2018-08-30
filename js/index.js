@@ -76,13 +76,13 @@
             let gem;
             for (let i = 0; i < 25; i += 1){
                 gem = this.matter.add.image(
-                    Phaser.Math.Between(50, 718),
-                    Phaser.Math.Between(50, (((innerHeight * 2) / 4) - 50)),
+                    Phaser.Math.Between(47, 721),
+                    Phaser.Math.Between(80, (((innerHeight * 2) / 4) - 80)),
                     'gem'
                 ).setInteractive();
                 gem.on('pointerdown', function () {
                     score.add(10);
-                    this.y = Phaser.Math.Between(0, (quartHeight - 50));
+                    this.y = Phaser.Math.Between(0, (quartHeight - 80));
                 });
                 this.gems.push(gem);
             }
@@ -94,7 +94,7 @@
         function update() {
             for(let gem of this.gems){
                 gem.angle = 0;
-                if(gem.y >= (quartHeight * 4) - 50){
+                if(gem.y >= (quartHeight * 4) - 80){
                     score.add(-5);
                     reposition(gem);
                 }
@@ -104,8 +104,8 @@
 
         function reposition(gem){
 
-            gem.x = Phaser.Math.Between(50, 718);
-            gem.y = Phaser.Math.Between(0, (quartHeight - 50));
+            gem.x = Phaser.Math.Between(47, 721);
+            gem.y = Phaser.Math.Between(0, (quartHeight - 80));
         }
 
         update = update.bind(game);
