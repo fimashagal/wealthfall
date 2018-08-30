@@ -80,10 +80,7 @@
                     Phaser.Math.Between(50, (((innerHeight * 2) / 4) - 50)),
                     'sugar'
                 ).setInteractive();
-                gem.on('pointerdown', function () {
-                    this.alpha = 0;
-                    score.add(10);
-                });
+                gem.on('pointerdown', function (){pointerHandler(this)});
                 this.gems.push(gem);
             }
         }
@@ -106,6 +103,13 @@
                 }
 
             }
+        }
+
+        function pointerHandler(gem){
+            gem.destroy();
+            gem = null;
+            score.add(10);
+
         }
 
         update = update.bind(game);
