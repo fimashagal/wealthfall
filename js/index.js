@@ -80,7 +80,10 @@
                     Phaser.Math.Between(50, (((innerHeight * 2) / 4) - 50)),
                     'sugar'
                 ).setInteractive();
-                gem.on('pointerdown', function (){pointerHandler(gem)});
+                gem.on('pointerdown', function () {
+                    this.alpha = 0;
+                    score.add(10);
+                });
                 this.gems.push(gem);
             }
         }
@@ -91,23 +94,23 @@
         function update() {
             const quartHeight = (innerHeight * 2) / 4;
             for(let gem of this.gems){
-                if(gem && typeof gem !== "undefined") {
-                    gem.angle = 0;
-
-                    if(gem.y > (quartHeight * 3) + 50){
+                gem.angle = 0;
+                if(gem.y > (quartHeight * 3) + 50){
+                    if(gem.alpha === 1) {
                         score.add(-2);
-                        gem.x = Phaser.Math.Between(50, 718);
-                        gem.y = Phaser.Math.Between(50, (quartHeight - 50));
+                    } else {
+                        gem.alpha = 1;
                     }
+                    reposition(gem);
                 }
+
             }
         }
 
-        function pointerHandler(gem){
-            gem.destroy();
-            gem = null;
-            score.add(10);
-
+        function reposition(gem){
+            const quartHeight = (innerHeight * 2) / 4;
+            gem.x = Phaser.Math.Between(50, 718);
+            gem.y = Phaser.Math.Between(50, (quartHeight - 50));
         }
 
         update = update.bind(game);
