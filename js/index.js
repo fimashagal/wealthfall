@@ -63,7 +63,7 @@
                     'sugar'
                 ).setInteractive();
                 gem.on('pointerdown', function () {
-                    console.log(gem);
+                    console.log(gem.angle);
                 });
                 this.gems.push(gem);
             }
@@ -75,6 +75,7 @@
         function update() {
             const quartHeight = (innerHeight * 2) / 4;
             for(let gem of this.gems){
+                gem.angle = 0;
                 if(gem.y > (quartHeight * 3) + 50){
                     gem.x = Phaser.Math.Between(25, 743);
                     gem.y = Phaser.Math.Between(0, (quartHeight - 50));
