@@ -34,7 +34,7 @@
     }
   ],
   "start_url": "https://nifty-bassi-8b8505.netlify.com",
-  "background_color": "#222222",
+  "background_color": "#111111",
   "display": "standalone",
   "scope": "/",
   "theme_color": "#111111",
