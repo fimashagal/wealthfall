@@ -81,8 +81,8 @@
                     'sugar'
                 ).setInteractive();
                 gem.on('pointerdown', function () {
+                    gem.alpha = 0;
                     score.add(10);
-                    this.alpha = 0;
                 });
                 this.gems.push(gem);
             }
@@ -97,11 +97,14 @@
                 gem.angle = 0;
 
                 if(gem.y > (quartHeight * 3) + 50){
-                    if(gem.alpha > 0) score.add(-2);
+                    if(gem.alpha === 1) {
+                        score.add(-2);
+                    }
                     gem.x = Phaser.Math.Between(50, 718);
                     gem.y = Phaser.Math.Between(50, (quartHeight - 50));
-                    gem.alpha = 1;
+
                 }
+                gem.alpha = 1;
             }
         }
 
