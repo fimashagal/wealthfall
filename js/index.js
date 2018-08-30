@@ -97,9 +97,10 @@
 
         function update() {
             const quartHeight = (innerHeight * 2) / 4;
+            let limit = (quartHeight * 3) + 50;
             for(let gem of this.gems){
                 gem.angle = 0;
-                if(gem.y > (quartHeight * 3) + 50){
+                if(gem.y > limit){
 
                     if(gem.data.get('active') === true){
                         score.add(-2);
@@ -107,15 +108,16 @@
                     if(gem.alpha === 0) gem.alpha = 1;
                     reposition(gem);
                 }
+                if(gem.y >= quartHeight){
+                    gem.data.set('active', true);
+                }
 
             }
         }
 
         function reposition(gem){
-
             gem.x = Phaser.Math.Between(50, 718);
             gem.y = Phaser.Math.Between(50, (quartHeight - 50));
-            gem.data.set('active', true);
         }
 
         update = update.bind(game);
