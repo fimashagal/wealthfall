@@ -34,7 +34,10 @@
             },
             update(progress){
                 this.el.classList.add(progress === true ? "receives" : "heat");
-                this.el.onanimationend = () => this.el.classList.remove(progress === true ? "receives" : "heat");
+                this.el.onanimationend = () => {
+                    this.el.classList.remove("heat");
+                    this.el.classList.remove("receives");
+                };
                 this.el.innerText = this.value;
                 return this;
             }
