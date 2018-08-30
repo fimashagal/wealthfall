@@ -22,7 +22,7 @@
         let {innerWidth, innerHeight} = window;
         let width = innerWidth < 768 ? innerWidth : 768;
         const quartHeight = (innerHeight * 2) / 4;
-        const wealth = {
+        const wealthPreset = {
             0: {
                 image: "gem-0",
                 scoreProfit: 10,
@@ -89,15 +89,10 @@
         });
 
         function preload(){
-            let pathGem = index => `./../assets/images/gem.${index}.png`;
+            let pathGem = index => `./../assets/images/wealth.${index}.png`;
             for(let i = 0; i < 5; i++){
-                this.load.image(`gem-${i}`, pathGem(0));
+                this.load.image(`wealth-${i}`, pathGem(0));
             }
-
-            // this.load.image('gem-1', pathGem(1));
-            // this.load.image('gem-2', pathGem(2));
-            // this.load.image('gem-3', pathGem(3));
-            // this.load.image('gem-4', pathGem(4));
         }
 
         preload = preload.bind(game);
@@ -107,27 +102,27 @@
             document.querySelector('.spinner').style.display = 'none';
 
             this.matter.world.setBounds();
-            this.gems = [];
-            let gem;
+            this.wealth = [];
+            let wealthItem;
             for (let i = 0; i < 25; i += 1){
-                let gemIndex = Phaser.Math.Between(0, 4);
-                let {image, scoreProfit, scoreDamage} = wealth[gemIndex];
+                let wealthIndex = Phaser.Math.Between(0, 4);
+                let {image, scoreProfit, scoreDamage} = wealthPreset[wealthIndex];
 
-                gem = this.matter.add.image(
+                wealthItem = this.matter.add.image(
                     Phaser.Math.Between(47, 721),
                     Phaser.Math.Between(80, (((innerHeight * 2) / 4) - 80)),
                     image
                 ).setInteractive();
-                gem.setDataEnabled();
-                gem.data.set('profit', scoreProfit);
-                gem.data.set('damage', scoreDamage);
-                gem.on('pointerdown', function () {
-                    score.add(gem.data.get('profit'));
+                wealthItem.setDataEnabled();
+                wealthItem.data.set('profit', scoreProfit);
+                wealthItem.data.set('damage', scoreDamage);
+                wealthItem.on('pointerdown', function () {
+                    score.add(wealthItem.data.get('profit'));
                     this.x = Phaser.Math.Between(47, 721);
                     this.y = Phaser.Math.Between(0, (quartHeight - 80));
                 });
 
-                this.gems.push(gem);
+                this.wealth.push(wealthItem);
             }
         }
 
@@ -135,12 +130,12 @@
 
 
         function update() {
-            for(let gem of this.gems){
-                gem.angle = 0;
-                if(gem.y >= (quartHeight * 4) - 80){
-                    score.add(gem.data.get('damage'));
-                    gem.x = Phaser.Math.Between(47, 721);
-                    gem.y = Phaser.Math.Between(0, (quartHeight - 80));
+            for(let wealthItem of this.wealth){
+                wealthItem.angle = 0;
+                if(wealthItem.y >= (quartHeight * 4) - 80){
+                    score.add(wealthItem.data.get('damage'));
+                    wealthItem.x = Phaser.Math.Between(47, 721);
+                    wealthItem.y = Phaser.Math.Between(0, (quartHeight - 80));
                 }
 
             }
