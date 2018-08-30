@@ -100,7 +100,8 @@
             for(let gem of this.gems){
                 gem.angle = 0;
                 if(gem.y > (quartHeight * 3) + 50){
-                    if(this.data.get('active') === true){
+
+                    if(gem.data.get('active') === true){
                         score.add(-2);
                     }
                     if(gem.alpha === 0) gem.alpha = 1;
