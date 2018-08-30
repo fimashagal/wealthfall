@@ -26,27 +26,27 @@
             0: {
                 image: "wealth-0",
                 scoreProfit: 10,
-                scoreDamage: -3
+                scoreDamage: width === 768 ? -3 : -5
             },
             1: {
                 image: "wealth-1",
                 scoreProfit: 12,
-                scoreDamage: -4
+                scoreDamage: width === 768 ? -4 : -6
             },
             2: {
                 image: "wealth-2",
                 scoreProfit: 14,
-                scoreDamage: -6
+                scoreDamage: width === 768 ? -6 : -7
             },
             3: {
                 image: "wealth-3",
                 scoreProfit: 16,
-                scoreDamage: -7
+                scoreDamage: width === 768 ? -7 : -8
             },
             4: {
                 image: "wealth-4",
                 scoreProfit: 18,
-                scoreDamage: -8
+                scoreDamage: width === 768 ? -8 : -9
             }
         };
 
@@ -103,7 +103,7 @@
 
             this.matter.world.setBounds();
             this.wealth = [];
-            let qty = width >= 768 ? 25 : 35;
+            let qty = width === 768 ? 25 : 30;
             let wealthItem;
             for (let i = 0; i < qty; i += 1){
                 let wealthIndex = Phaser.Math.Between(0, 4);
