@@ -79,7 +79,7 @@
                 ).setInteractive();
                 gem.on('pointerdown', function () {
                     score.add(1);
-                    gem.visible = false;
+                    gem.alpha = 0;
                 });
                 this.gems.push(gem);
             }
@@ -95,7 +95,7 @@
                 if(gem.y > (quartHeight * 3) + 50){
                     gem.x = Phaser.Math.Between(50, 718);
                     gem.y = Phaser.Math.Between(50, (quartHeight - 50));
-                    gem.visible = true;
+                    gem.alpha = 1;
                 }
             }
         }
