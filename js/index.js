@@ -32,7 +32,7 @@
                 default: 'matter',
                 matter: {
                     gravity: {
-                        y: .3
+                        y: .2
                     },
                     enableSleep: true,
                     debug: false
@@ -58,8 +58,8 @@
             let gem;
             for (let i = 0; i < 24; i += 1){
                 gem = this.matter.add.image(
-                    Phaser.Math.Between(25, 743),
-                    Phaser.Math.Between(25, (((innerHeight * 2) / 4) - 25)),
+                    Phaser.Math.Between(50, 718),
+                    Phaser.Math.Between(50, (((innerHeight * 2) / 4) - 50)),
                     'sugar'
                 ).setInteractive();
                 gem.on('pointerdown', function () {
@@ -77,8 +77,8 @@
             for(let gem of this.gems){
                 gem.angle = 0;
                 if(gem.y > (quartHeight * 3) + 50){
-                    gem.x = Phaser.Math.Between(25, 743);
-                    gem.y = Phaser.Math.Between(25, (quartHeight - 25));
+                    gem.x = Phaser.Math.Between(50, 718);
+                    gem.y = Phaser.Math.Between(50, (quartHeight - 50));
                 }
             }
         }
