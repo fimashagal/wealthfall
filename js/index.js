@@ -97,7 +97,7 @@
             for(let gem of this.gems){
                 gem.angle = 0;
                 if(gem.y > (quartHeight * 3) + 50){
-                    score.add(-2);
+                    score.add(-5);
                     reposition(gem);
                 }
 
