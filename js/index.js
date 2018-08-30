@@ -79,6 +79,7 @@
                 ).setInteractive();
                 gem.on('pointerdown', function () {
                     score.add(1);
+                    console.log(score);
                 });
                 this.gems.push(gem);
             }
