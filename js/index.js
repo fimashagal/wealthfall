@@ -55,8 +55,13 @@
             document.querySelector('.spinner').style.display = 'none';
             this.matter.world.setBounds();
             this.gems = [];
-            for (let i = 0; i < 50; i += 1){
-                this.gems.push(this.matter.add.image(Phaser.Math.Between(0, 768), Phaser.Math.Between(0, (((innerHeight * 2) / 4) - 50)), 'sugar'));
+            for (let i = 0; i < 16; i += 1){
+                let gem = this.matter.add.image(
+                            Phaser.Math.Between(0, 768),
+                            Phaser.Math.Between(0, (((innerHeight * 2) / 4) - 50)),
+                            'sugar'
+                );
+                this.gems.push(gem);
             }
 
             this.matter.add.mouseSpring();
