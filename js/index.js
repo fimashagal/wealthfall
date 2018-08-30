@@ -28,16 +28,13 @@
             height: innerHeight * 2,
             backgroundColor: '#222222',
             parent: 'canvas',
-            // physics: {
-            //     default: 'matter',
-            //     matter: {
-            //         gravity: {
-            //             y: .45
-            //         },
-            //         enableSleep: true,
-            //         debug: false
-            //     }
-            // },
+            physics: {
+                default: 'arcade',
+                arcade: {
+                    debug: true,
+                    gravity: { y: 200 }
+                }
+            },
             scene: {
                 preload,
                 create,
@@ -61,6 +58,10 @@
                     Phaser.Math.Between(0, (((innerHeight * 2) / 4) - 50)),
                     'sugar'
                 ).setInteractive();
+                this.physics.add.existing(gem, false);
+                gem.body.setVelocity(0, 180);
+                gem.body.setBounce(1, 1);
+                gem.body.setCollideWorldBounds(true);
                 gem.on('pointerdown', function () {
                     console.log(this);
                 });
