@@ -46,7 +46,7 @@
                 default: 'matter',
                 matter: {
                     gravity: {
-                        y: 1
+                        y: .2
                     },
                     enableSleep: true,
                     debug: false
@@ -71,7 +71,7 @@
             this.matter.world.setBounds();
             this.gems = [];
             let gem;
-            for (let i = 0; i < 15; i += 1){
+            for (let i = 0; i < 25; i += 1){
                 gem = this.matter.add.image(
                     Phaser.Math.Between(50, 718),
                     Phaser.Math.Between(50, (((innerHeight * 2) / 4) - 50)),
