@@ -109,7 +109,7 @@
                 let {image, scoreProfit, scoreDamage} = wealthPreset[wealthIndex];
 
                 wealthItem = this.matter.add.image(
-                    Phaser.Math.Between(47, 721),
+                    Phaser.Math.Between(0, width),
                     Phaser.Math.Between(80, quartHeight*3),
                     image
                 ).setInteractive();
@@ -118,7 +118,7 @@
                 wealthItem.data.set('damage', scoreDamage);
                 wealthItem.on('pointerdown', function () {
                     score.add(wealthItem.data.get('profit'));
-                    this.x = Phaser.Math.Between(47, 721);
+                    this.x = Phaser.Math.Between(0, width);
                     this.y = Phaser.Math.Between(0, (quartHeight - 80));
                 });
 
@@ -134,7 +134,7 @@
                 wealthItem.angle = 0;
                 if(wealthItem.y >= (quartHeight * 4) - 80){
                     score.add(wealthItem.data.get('damage'));
-                    wealthItem.x = Phaser.Math.Between(47, 721);
+                    wealthItem.x = Phaser.Math.Between(0, width);
                     wealthItem.y = Phaser.Math.Between(0, (quartHeight - 80));
                 }
 
