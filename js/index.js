@@ -28,16 +28,16 @@
             height: innerHeight * 2,
             backgroundColor: '#222222',
             parent: 'canvas',
-            physics: {
-                default: 'matter',
-                matter: {
-                    gravity: {
-                        y: .45
-                    },
-                    enableSleep: true,
-                    debug: false
-                }
-            },
+            // physics: {
+            //     default: 'matter',
+            //     matter: {
+            //         gravity: {
+            //             y: .45
+            //         },
+            //         enableSleep: true,
+            //         debug: false
+            //     }
+            // },
             scene: {
                 preload,
                 create,
@@ -53,7 +53,6 @@
 
         function create(){
             document.querySelector('.spinner').style.display = 'none';
-            this.matter.world.setBounds();
             this.gems = [];
             let gem;
             for (let i = 0; i < 24; i += 1){
@@ -62,7 +61,7 @@
                     Phaser.Math.Between(0, (((innerHeight * 2) / 4) - 50)),
                     'sugar'
                 ).setInteractive();
-                gem.on('pointerdown', function (pointer) {
+                gem.on('pointerdown', function () {
                     console.log(this);
                 });
                 this.gems.push(gem);
@@ -75,6 +74,7 @@
         function update() {
             const quartHeight = (innerHeight * 2) / 4;
             for(let gem of this.gems){
+                gem.y += 1;
                 if(gem.y > (quartHeight * 3) + 50){
                     gem.x = Phaser.Math.Between(25, 743);
                     gem.y = Phaser.Math.Between(0, (quartHeight - 50));
