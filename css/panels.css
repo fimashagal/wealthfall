@@ -8,10 +8,20 @@
 
 .panel {
     position: absolute;
+    padding: 1em;
 }
 
 .panel-top {
     top: 0;
     left: 0;
     z-index: 2;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.panel-top:before,
+.panel-top::before {
+    display: block;
+    content: "";
 }
