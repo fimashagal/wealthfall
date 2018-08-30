@@ -26,11 +26,15 @@
             el: document.querySelector('.score'),
             value: 0,
             add(value){
-                this.value += value;
-                this.update();
+                if(this.value + value >= 0){
+                    this.value += value;
+                    this.update(value > 0);
+                }
                 return this;
             },
-            update(){
+            update(progress){
+                this.el.classList.add(progress === true ? "receives" : "heat");
+                this.el.onanimationend = () => this.el.classList.remove(progress === true ? "receives" : "heat");
                 this.el.innerText = this.value;
                 return this;
             }
@@ -95,7 +99,12 @@
                 if(gem.y > (quartHeight * 3) + 50){
                     gem.x = Phaser.Math.Between(50, 718);
                     gem.y = Phaser.Math.Between(50, (quartHeight - 50));
-                    gem.alpha = 1;
+                    if(gem.alpha > 0){
+                        score.add(-1);
+                    } else {
+                        gem.alpha = 1;
+                    }
+
                 }
             }
         }
