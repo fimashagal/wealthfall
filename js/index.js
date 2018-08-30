@@ -65,6 +65,9 @@
                 gem.on('pointerdown', function () {
                     alert(1);
                 });
+                this.input.on('pointerdown', function (pointer) {
+                    alert(pointer);
+                }, this);
                 this.gems.push(gem);
             }
 
