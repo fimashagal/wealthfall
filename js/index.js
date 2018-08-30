@@ -62,9 +62,9 @@
                     Phaser.Math.Between(0, (((innerHeight * 2) / 4) - 50)),
                     'sugar'
                 );
-                this.input.on('pointerdown', function (pointer) {
-                    console.log(pointer);
-                }, this);
+                gem.on('pointerdown', function () {
+                    console.log(1);
+                });
                 this.gems.push(gem);
             }
         }
