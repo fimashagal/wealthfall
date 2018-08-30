@@ -26,27 +26,27 @@
             0: {
                 image: "wealth-0",
                 scoreProfit: 10,
-                scoreDamage: width === 768 ? -5 : -3
+                scoreDamage: width === 768 ? -3 : -5
             },
             1: {
                 image: "wealth-1",
                 scoreProfit: 12,
-                scoreDamage: width === 768 ? -6 : -4
+                scoreDamage: width === 768 ? -4 : -6
             },
             2: {
                 image: "wealth-2",
                 scoreProfit: 14,
-                scoreDamage: width === 768 ? -7 : -5
+                scoreDamage: width === 768 ? -5 : -7
             },
             3: {
                 image: "wealth-3",
                 scoreProfit: 16,
-                scoreDamage: width === 768 ? -8 : -6
+                scoreDamage: width === 768 ? -6 : -8
             },
             4: {
                 image: "wealth-4",
                 scoreProfit: 18,
-                scoreDamage: width === 768 ? -9 : -7
+                scoreDamage: width === 768 ? -7 : -9
             }
         };
 
