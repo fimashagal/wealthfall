@@ -63,7 +63,7 @@
                     'sugar'
                 ).setInteractive();
                 gem.on('pointerdown', function () {
-                    console.log(gem.body.rotate);
+                    console.log(gem.rotate);
                 });
                 this.gems.push(gem);
             }
