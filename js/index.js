@@ -107,8 +107,8 @@
 
         function reposition(gem){
 
-            gem.x = Phaser.Math.Between(50, 718);
-            gem.y = Phaser.Math.Between(0, (quartHeight - 50));
+            gem.body.x = Phaser.Math.Between(50, 718);
+            gem.body.y = Phaser.Math.Between(0, (quartHeight - 50));
         }
 
         update = update.bind(game);
