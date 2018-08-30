@@ -1,5 +1,7 @@
 @import "reset.css";
 @import "preset.css";
+@import 'https://fonts.googleapis.com/css?family=Spinnaker&subset=latin-ext';
 @import "spinner.css";
 @import "canvas.css";
+@import "panels.css";
 @import "wealthfall.css";
