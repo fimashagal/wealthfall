@@ -99,16 +99,11 @@
                 gem.angle = 0;
                 if(gem.y >= (quartHeight * 4) - 80){
                     score.add(-5);
-                    reposition(gem);
+                    gem.x = Phaser.Math.Between(47, 721);
+                    gem.y = Phaser.Math.Between(0, (quartHeight - 80));
                 }
 
             }
-        }
-
-        function reposition(gem){
-
-            gem.x = Phaser.Math.Between(47, 721);
-            gem.y = Phaser.Math.Between(0, (quartHeight - 80));
         }
 
         update = update.bind(game);
