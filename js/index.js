@@ -33,7 +33,7 @@
                 return this;
             },
             update(){
-                this.el.innerText = this.value;
+                this.el.innerText = this.value.toString();
                 return this;
             }
         };
@@ -68,8 +68,9 @@
         preload = preload.bind(game);
 
         function create(){
-            document.querySelector('.spinner').style.display = 'none';
             score.update();
+            document.querySelector('.spinner').style.display = 'none';
+
             this.matter.world.setBounds();
             this.gems = [];
             let gem;
