@@ -1,3 +1,4 @@
 .score {
     color:#ffff00;
+    pointer-events: none;
 }
