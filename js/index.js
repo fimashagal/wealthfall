@@ -95,12 +95,9 @@
         function update() {
             for(let gem of this.gems){
                 gem.angle = 0;
-                if(gem.body.y >= (quartHeight * 4)-50){
-                    console.log(gem.body.y);
+                if(gem.y >= (quartHeight * 4)-50){
                     score.add(-5);
                     reposition(gem);
-
-
                 }
 
             }
@@ -108,8 +105,8 @@
 
         function reposition(gem){
 
-            gem.body.x = Phaser.Math.Between(50, 718);
-            gem.body.y = Phaser.Math.Between(0, (quartHeight - 50));
+            gem.x = Phaser.Math.Between(50, 718);
+            gem.y = Phaser.Math.Between(0, (quartHeight - 50));
         }
 
         update = update.bind(game);
