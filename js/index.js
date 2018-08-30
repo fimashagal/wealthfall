@@ -65,6 +65,7 @@
                 gem.on('pointerdown', function () {
                     console.log(this);
                 });
+                this.physics.add.collider(gem);
                 this.gems.push(gem);
             }
         }
