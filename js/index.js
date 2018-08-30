@@ -103,7 +103,7 @@
 
             this.matter.world.setBounds();
             this.wealth = [];
-            let qty = width >= 768 ? 25 : 45;
+            let qty = width >= 768 ? 25 : 35;
             let wealthItem;
             for (let i = 0; i < qty; i += 1){
                 let wealthIndex = Phaser.Math.Between(0, 4);
