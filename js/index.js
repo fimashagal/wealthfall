@@ -91,7 +91,7 @@
         function preload(){
             let pathGem = index => `./../assets/images/wealth.${index}.png`;
             for(let i = 0; i < 5; i++){
-                this.load.image(`wealth-${i}`, pathGem(0));
+                this.load.image(`wealth-${i}`, pathGem(i));
             }
         }
 
