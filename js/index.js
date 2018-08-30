@@ -58,8 +58,8 @@
             let gem;
             for (let i = 0; i < 24; i += 1){
                 gem = this.matter.add.image(
-                    Phaser.Math.Between(0, 768),
-                    Phaser.Math.Between(0, (((innerHeight * 2) / 4) - 50)),
+                    Phaser.Math.Between(25, 743),
+                    Phaser.Math.Between(25, (((innerHeight * 2) / 4) - 25)),
                     'sugar'
                 ).setInteractive();
                 gem.on('pointerdown', function () {
@@ -78,7 +78,7 @@
                 gem.angle = 0;
                 if(gem.y > (quartHeight * 3) + 50){
                     gem.x = Phaser.Math.Between(25, 743);
-                    gem.y = Phaser.Math.Between(0, (quartHeight - 50));
+                    gem.y = Phaser.Math.Between(25, (quartHeight - 25));
                 }
             }
         }
