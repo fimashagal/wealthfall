@@ -61,7 +61,7 @@
                     Phaser.Math.Between(0, 768),
                     Phaser.Math.Between(0, (((innerHeight * 2) / 4) - 50)),
                     'sugar'
-                );
+                ).setInteractive();
                 gem.on('pointerdown', function () {
                     console.log(1);
                 });
