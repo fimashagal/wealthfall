@@ -56,7 +56,7 @@
             this.gems = [];
             let gem;
             for (let i = 0; i < 24; i += 1){
-                gem = this.matter.add.image(
+                gem = this.add.image(
                     Phaser.Math.Between(0, 768),
                     Phaser.Math.Between(0, (((innerHeight * 2) / 4) - 50)),
                     'sugar'
