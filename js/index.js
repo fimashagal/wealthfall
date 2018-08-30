@@ -21,6 +21,7 @@
     function phaserInit() {
         let {innerWidth, innerHeight} = window;
         let width = innerWidth < 768 ? innerWidth : 768;
+        const quartHeight = (innerHeight * 2) / 4;
 
         const score = {
             el: document.querySelector('.score'),
@@ -96,11 +97,7 @@
             for(let gem of this.gems){
                 gem.angle = 0;
                 if(gem.y > (quartHeight * 3) + 50){
-                    if(gem.alpha === 1) {
-                        score.add(-2);
-                    } else {
-                        gem.alpha = 1;
-                    }
+                    if(gem.alpha === 0) gem.alpha = 1;
                     reposition(gem);
                 }
 
@@ -108,7 +105,7 @@
         }
 
         function reposition(gem){
-            const quartHeight = (innerHeight * 2) / 4;
+
             gem.x = Phaser.Math.Between(50, 718);
             gem.y = Phaser.Math.Between(50, (quartHeight - 50));
         }
