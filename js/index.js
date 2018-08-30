@@ -75,7 +75,7 @@
                 default: 'matter',
                 matter: {
                     gravity: {
-                        y: .2
+                        y: .175
                     },
                     enableSleep: true,
                     debug: false
