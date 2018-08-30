@@ -69,6 +69,7 @@
 
         function create(){
             document.querySelector('.spinner').style.display = 'none';
+            score.update();
             this.matter.world.setBounds();
             this.gems = [];
             let gem;
@@ -80,7 +81,7 @@
                 ).setInteractive();
                 gem.on('pointerdown', function () {
                     this.alpha = 0;
-                    score.add(2);
+                    score.add(10);
                 });
                 this.gems.push(gem);
             }
