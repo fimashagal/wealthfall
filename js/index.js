@@ -27,10 +27,9 @@
             el: document.querySelector('.score'),
             value: 0,
             add(value){
-                if(this.value + value >= 0){
-                    this.value += value;
-                    this.update(value > 0);
-                }
+                this.value += value;
+                if(this.value < 0) this.value = 0;
+                this.update(value > 0);
                 return this;
             },
             update(){
@@ -95,8 +94,8 @@
         function update() {
             for(let gem of this.gems){
                 gem.angle = 0;
-                if(gem.y >= (quartHeight * 4)-50){
-                    score.add(-3);
+                if(gem.y >= (quartHeight * 4) - 50){
+                    score.add(-4);
                     reposition(gem);
                 }
 
