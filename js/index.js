@@ -24,27 +24,27 @@
         const quartHeight = (innerHeight * 2) / 4;
         const wealthPreset = {
             0: {
-                image: "gem-0",
+                image: "wealth-0",
                 scoreProfit: 10,
                 scoreDamage: -5
             },
             1: {
-                image: "gem-1",
+                image: "wealth-1",
                 scoreProfit: 12,
                 scoreDamage: -6
             },
             2: {
-                image: "gem-2",
+                image: "wealth-2",
                 scoreProfit: 14,
                 scoreDamage: -7
             },
             3: {
-                image: "gem-3",
+                image: "wealth-3",
                 scoreProfit: 16,
                 scoreDamage: -8
             },
             4: {
-                image: "gem-4",
+                image: "wealth-4",
                 scoreProfit: 18,
                 scoreDamage: -9
             }
