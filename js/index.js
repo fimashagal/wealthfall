@@ -26,12 +26,12 @@
             0: {
                 image: "wealth-0",
                 scoreProfit: 10,
-                scoreDamage: -4
+                scoreDamage: -8
             },
             1: {
                 image: "wealth-1",
                 scoreProfit: 14,
-                scoreDamage: -5
+                scoreDamage: -7
             },
             2: {
                 image: "wealth-2",
@@ -41,12 +41,12 @@
             3: {
                 image: "wealth-3",
                 scoreProfit: 18,
-                scoreDamage: -7
+                scoreDamage: -5
             },
             4: {
                 image: "wealth-4",
                 scoreProfit: 20,
-                scoreDamage: -8
+                scoreDamage: -4
             },
             5: {
                 image: "wealth-5",
