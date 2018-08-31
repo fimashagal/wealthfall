@@ -145,6 +145,7 @@
                 ).setInteractive();
                 wealthItem.setDataEnabled();
                 if(velocityY > 0) wealthItem.setVelocityY(velocityY);
+                wealthItem.setBounce(1.2);
                 wealthItem.data.set('profit', scoreProfit);
                 wealthItem.data.set('damage', scoreDamage);
                 wealthItem.on('pointerdown', function () {
