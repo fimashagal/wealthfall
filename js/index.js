@@ -50,27 +50,27 @@
             },
             5: {
                 image: "wealth-5",
-                scoreProfit: -5,
+                scoreProfit: -50,
                 scoreDamage: 0
             },
             6: {
                 image: "wealth-6",
-                scoreProfit: -25,
+                scoreProfit: -125,
                 scoreDamage: 0
             },
             7: {
                 image: "wealth-7",
-                scoreProfit: -50,
+                scoreProfit: -250,
                 scoreDamage: 0
             },
             8: {
                 image: "wealth-8",
-                scoreProfit: -75,
+                scoreProfit: -500,
                 scoreDamage: 0
             },
             9: {
                 image: "wealth-9",
-                scoreProfit: -100,
+                scoreProfit: -1000,
                 scoreDamage: 0
             }
         };
