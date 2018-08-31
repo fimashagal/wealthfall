@@ -47,6 +47,31 @@
                 image: "wealth-4",
                 scoreProfit: 20,
                 scoreDamage: -8
+            },
+            5: {
+                image: "wealth-5",
+                scoreProfit: -4,
+                scoreDamage: 0
+            },
+            6: {
+                image: "wealth-6",
+                scoreProfit: -5,
+                scoreDamage: 0
+            },
+            7: {
+                image: "wealth-7",
+                scoreProfit: -6,
+                scoreDamage: 0
+            },
+            8: {
+                image: "wealth-8",
+                scoreProfit: -7,
+                scoreDamage: 0
+            },
+            9: {
+                image: "wealth-9",
+                scoreProfit: -8,
+                scoreDamage: 0
             }
         };
 
@@ -105,7 +130,7 @@
             this.wealth = [];
             let wealthItem;
             for (let i = 0; i < 26; i += 1){
-                let wealthIndex = Phaser.Math.Between(0, 4);
+                let wealthIndex = Phaser.Math.Between(0, 9);
                 let {image, scoreProfit, scoreDamage} = wealthPreset[wealthIndex];
 
                 wealthItem = this.matter.add.image(
@@ -142,7 +167,6 @@
         }
 
         update = update.bind(game);
-
 
     }
 
