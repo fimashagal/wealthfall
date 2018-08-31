@@ -81,7 +81,7 @@
             add(value){
                 this.value += value;
                 if(this.value < 0) this.value = 0;
-                this.update(value > 0);
+                this.update();
                 return this;
             },
             update(){
