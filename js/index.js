@@ -157,7 +157,7 @@
         function update() {
             for(let wealthItem of this.wealth){
                 wealthItem.angle = 0;
-                if(wealthItem.y >= (quartHeight * 3) - 80){
+                if(wealthItem.y >= (quartHeight * 3) + 80){
                     score.add(wealthItem.data.get('damage'));
                     wealthItem.x = Phaser.Math.Between(0, width);
                     wealthItem.y = Phaser.Math.Between(0, (quartHeight - 80));
