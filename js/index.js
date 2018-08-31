@@ -135,7 +135,7 @@
                     image
                 ).setInteractive();
                 wealthItem.setDataEnabled();
-                wealthItem.setBounce(1.2);
+                wealthItem.setBounce(1.1);
                 wealthItem.data.set('profit', scoreProfit);
                 wealthItem.data.set('damage', scoreDamage);
                 wealthItem.on('pointerdown', function () {
