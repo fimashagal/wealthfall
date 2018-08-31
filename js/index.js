@@ -79,6 +79,7 @@
             el: document.querySelector('.score'),
             value: 0,
             add(value){
+                console.log(value);
                 this.value += value;
                 if(this.value < 0) this.value = 0;
                 this.update();
