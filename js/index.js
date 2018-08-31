@@ -20,7 +20,7 @@
 
     function phaserInit() {
         let {innerWidth, innerHeight} = window;
-        let width = innerWidth < 768 ? innerWidth : 768;
+        let width = innerWidth < 640 ? innerWidth : 640;
         const quartHeight = (innerHeight * 2) / 4;
         const wealthPreset = {
             0: {
