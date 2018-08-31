@@ -57,31 +57,31 @@
                 image: "wealth-5",
                 scoreProfit: -50,
                 scoreDamage: 0,
-                velocityY: 2
+                velocityY: 4
             },
             6: {
                 image: "wealth-6",
                 scoreProfit: -125,
                 scoreDamage: 0,
-                velocityY: 4
+                velocityY: 8
             },
             7: {
                 image: "wealth-7",
                 scoreProfit: -250,
                 scoreDamage: 0,
-                velocityY: 6
+                velocityY: 12
             },
             8: {
                 image: "wealth-8",
                 scoreProfit: -500,
                 scoreDamage: 0,
-                velocityY: 8
+                velocityY: 16
             },
             9: {
                 image: "wealth-9",
                 scoreProfit: -1000,
                 scoreDamage: 0,
-                velocityY: 10
+                velocityY: 20
             }
         };
 
