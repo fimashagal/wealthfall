@@ -115,17 +115,13 @@
 
         function preload(){
             let pathGem = index => `./../assets/images/wealth.${index}.png`;
-            for(let i = 0; i < 10; i++){
-                this.load.image(`wealth-${i}`, pathGem(i));
-            }
+            for(let i = 0; i < 10; i++) this.load.image(`wealth-${i}`, pathGem(i));
         }
-
         preload = preload.bind(game);
 
         function create(){
             score.update();
             document.querySelector('.spinner').style.display = 'none';
-
             this.matter.world.setBounds();
             this.wealth = [];
             for (let i = 0; i < 26; i += 1){
@@ -142,11 +138,8 @@
                 wealthItem.data.set('damage', scoreDamage);
                 wealthItem.on('pointerdown', function () {
                     score.add(wealthItem.data.get('profit'));
-                    this.x = Phaser.Math.Between(0, width);
-                    this.y = Phaser.Math.Between(0, (quartHeight - 80));
-
+                    wealthToStart(this);
                 });
-
                 this.wealth.push(wealthItem);
             }
         }
@@ -159,14 +152,18 @@
                 wealthItem.angle = 0;
                 if(wealthItem.y >= (quartHeight * 3) + 80){
                     score.add(wealthItem.data.get('damage'));
-                    wealthItem.x = Phaser.Math.Between(0, width);
-                    wealthItem.y = Phaser.Math.Between(0, (quartHeight - 80));
+                    wealthToStart(wealthItem);
                 }
 
             }
         }
-
         update = update.bind(game);
+
+        function wealthToStart(wealth){
+            wealth.x = Phaser.Math.Between(0, width);
+            wealth.y = Phaser.Math.Between(0, (quartHeight - 80));
+            return wealth;
+        }
 
     }
 
