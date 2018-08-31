@@ -129,12 +129,11 @@
 
             this.matter.world.setBounds();
             this.wealth = [];
-            let wealthItem;
             for (let i = 0; i < 26; i += 1){
                 let wealthIndex = Phaser.Math.Between(0, 9);
                 let {image, scoreProfit, scoreDamage} = wealthPreset[wealthIndex];
 
-                wealthItem = this.matter.add.image(
+                let wealthItem = this.matter.add.image(
                     Phaser.Math.Between(0, width),
                     Phaser.Math.Between(80, quartHeight*3),
                     image
