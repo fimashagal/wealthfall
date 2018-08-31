@@ -26,52 +26,62 @@
             0: {
                 image: "wealth-0",
                 scoreProfit: 10,
-                scoreDamage: -14
+                scoreDamage: -14,
+                velocityY: 0
             },
             1: {
                 image: "wealth-1",
                 scoreProfit: 14,
-                scoreDamage: -13
+                scoreDamage: -13,
+                velocityY: 0
             },
             2: {
                 image: "wealth-2",
                 scoreProfit: 16,
-                scoreDamage: -12
+                scoreDamage: -12,
+                velocityY: 0
             },
             3: {
                 image: "wealth-3",
                 scoreProfit: 18,
-                scoreDamage: -11
+                scoreDamage: -11,
+                velocityY: 0
             },
             4: {
                 image: "wealth-4",
                 scoreProfit: 20,
-                scoreDamage: -10
+                scoreDamage: -10,
+                velocityY: 0
             },
             5: {
                 image: "wealth-5",
                 scoreProfit: -50,
-                scoreDamage: 0
+                scoreDamage: 0,
+                velocityY: 1
             },
             6: {
                 image: "wealth-6",
                 scoreProfit: -125,
-                scoreDamage: 0
+                scoreDamage: 0,
+                velocityY: 1
             },
             7: {
                 image: "wealth-7",
                 scoreProfit: -250,
-                scoreDamage: 0
+                scoreDamage: 0,
+                velocityY: 1
             },
             8: {
                 image: "wealth-8",
                 scoreProfit: -500,
-                scoreDamage: 0
+                scoreDamage: 0,
+                velocityY: 1
             },
             9: {
                 image: "wealth-9",
                 scoreProfit: -1000,
-                scoreDamage: 0
+                scoreDamage: 0,
+                velocityY: 1
             }
         };
 
@@ -126,7 +136,7 @@
             this.wealth = [];
             for (let i = 0; i < 26; i += 1){
                 let wealthIndex = Phaser.Math.Between(0, 9);
-                let {image, scoreProfit, scoreDamage} = wealthPreset[wealthIndex];
+                let {image, scoreProfit, scoreDamage, velocityY} = wealthPreset[wealthIndex];
 
                 let wealthItem = this.matter.add.image(
                     Phaser.Math.Between(0, width),
@@ -134,6 +144,7 @@
                     image
                 ).setInteractive();
                 wealthItem.setDataEnabled();
+                if(velocityY > 0) wealthItem.setVelocityY(velocityY);
                 wealthItem.data.set('profit', scoreProfit);
                 wealthItem.data.set('damage', scoreDamage);
                 wealthItem.on('pointerdown', function () {
