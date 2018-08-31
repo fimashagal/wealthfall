@@ -143,7 +143,6 @@
                 wealthItem.data.set('profit', scoreProfit);
                 wealthItem.data.set('damage', scoreDamage);
                 wealthItem.on('pointerdown', function () {
-                    console.log(wealthItem.data.get('profit'));
                     score.add(wealthItem.data.get('profit'));
                     this.x = Phaser.Math.Between(0, width);
                     this.y = Phaser.Math.Between(0, (quartHeight - 80));
