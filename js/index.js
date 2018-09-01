@@ -41,62 +41,72 @@
                 image: "wealth-0",
                 scoreProfit: 10,
                 scoreDamage: -14,
-                role: "gem"
+                role: "gem",
+                bounce: .5
             },
             1: {
                 image: "wealth-1",
                 scoreProfit: 14,
                 scoreDamage: -13,
-                role: "gem"
+                role: "gem",
+                bounce: .5
             },
             2: {
                 image: "wealth-2",
                 scoreProfit: 16,
                 scoreDamage: -12,
-                role: "gem"
+                role: "gem",
+                bounce: .5
             },
             3: {
                 image: "wealth-3",
                 scoreProfit: 18,
                 scoreDamage: -11,
-                role: "gem"
+                role: "gem",
+                bounce: .5
             },
             4: {
                 image: "wealth-4",
                 scoreProfit: 20,
                 scoreDamage: -10,
-                role: "gem"
+                role: "gem",
+                bounce: .5
             },
             5: {
                 image: "wealth-5",
                 scoreProfit: -50,
                 scoreDamage: 0,
-                role: "scull"
+                role: "scull",
+                bounce: 1.5
             },
             6: {
                 image: "wealth-6",
                 scoreProfit: -125,
                 scoreDamage: 0,
-                role: "scull"
+                role: "scull",
+                bounce: 1.5
             },
             7: {
                 image: "wealth-7",
                 scoreProfit: -250,
                 scoreDamage: 0,
-                role: "scull"
+                role: "scull",
+                bounce: 1.5
             },
             8: {
                 image: "wealth-8",
                 scoreProfit: -500,
                 scoreDamage: 0,
-                role: "scull"
+                role: "scull",
+                bounce: 1.5
             },
             9: {
                 image: "wealth-9",
                 scoreProfit: -1000,
                 scoreDamage: 0,
                 velocityY: 20,
-                role: "scull"
+                role: "scull",
+                bounce: 1.5
             }
         };
 
