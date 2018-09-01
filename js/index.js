@@ -156,7 +156,8 @@
                 wealthItem.data.set('damage', scoreDamage);
                 wealthItem.on('pointerdown', function () {
                     score.add(wealthItem.data.get('profit'));
-                    wealthToStart(this);
+                    mutateWealth(this);
+                    placeWealthToStart(this);
                 });
                 this.wealth.push(wealthItem);
             }
@@ -170,7 +171,7 @@
                 wealthItem.angle = 0;
                 if(wealthItem.y >= (quartHeight * 3) + 80){
                     score.add(wealthItem.data.get('damage'));
-                    wealthToStart(wealthItem);
+                    placeWealthToStart(wealthItem);
                 }
             }
         }
@@ -178,14 +179,19 @@
         update = update.bind(game);
 
 
-        function wealthToStart(wealth){
+        function placeWealthToStart(wealth){
             wealth.x = Phaser.Math.Between(0, width);
             wealth.y = Phaser.Math.Between(0, (quartHeight - 80));
             return wealth;
         }
 
-        function genWealth() {
-
+        function mutateWealth(wealth) {
+            let wealthIndex = Phaser.Math.Between(0, 9);
+            let {image, scoreProfit, scoreDamage} = wealthPreset[wealthIndex];
+            wealthItem.image = image;
+            wealthItem.data.set('profit', scoreProfit);
+            wealthItem.data.set('damage', scoreDamage);
+            return wealth;
         }
 
     }
