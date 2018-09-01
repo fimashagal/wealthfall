@@ -169,13 +169,14 @@
                 );
                 wealthItem.setInteractive();
                 wealthItem.setDataEnabled();
-                wealthItem.data.set('profit', scoreProfit);
-                wealthItem.data.set('damage', scoreDamage);
-                wealthItem.data.set('role', role);
+                let {data} = wealthItem;
+                data.set('profit', scoreProfit);
+                data.set('damage', scoreDamage);
+                data.set('role', role);
                 wealthItem.on('pointerdown', function () {
                     let role = this.data.get('role');
-                    score.add(wealthItem.data.get('profit'));
                     self.soundFx[role].play();
+                    score.add(wealthItem.data.get('profit'));
                     mutateWealth(this, role);
                     placeWealthToStart(this);
                 });
