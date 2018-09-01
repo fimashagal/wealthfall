@@ -176,6 +176,9 @@
                 if(role === "gem"){
                     wealthItem.setBounce(1.1);
                 }
+                if(role === "scull"){
+                    wealthItem.setBounce(1);
+                }
                 wealthItem.on('pointerdown', function () {
                     let role = data.get('role');
                     self.soundFx[role].play();
@@ -221,6 +224,12 @@
             let {data} = wealth;
             data.set('profit', scoreProfit);
             data.set('damage', scoreDamage);
+            if(role === "gem"){
+                wealth.setBounce(1.1);
+            }
+            if(role === "scull"){
+                wealth.setBounce(1);
+            }
             return wealth;
         }
 
