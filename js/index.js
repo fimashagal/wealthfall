@@ -216,6 +216,9 @@
             if(wealth.data.get('role') === "scull") {
                 wealth.setVelocityY(Phaser.Math.Between(3, 8));
                 wealth.setVelocityX(Phaser.Math.Between(-12, 12));
+                setTimeout(() => {
+                    wealth.setVelocityX(Phaser.Math.Between(-12, 12));
+                },250);
             }
             return wealth;
         }
