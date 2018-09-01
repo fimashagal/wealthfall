@@ -97,6 +97,7 @@
                 return this;
             },
             update(){
+                localforage.setItem('wealthfall', this.value);
                 this.el.innerText = this.value.toString();
                 return this;
             }
