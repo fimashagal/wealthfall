@@ -223,6 +223,9 @@
                 setTimeout(() => {
                     wealth.setVelocityX(Phaser.Math.Between(-7, 7));
                 }, Phaser.Math.Between(100, 1500));
+                setTimeout(() => {
+                    wealth.setVelocityy(Phaser.Math.Between(3, 5));
+                }, 1600);
             }
             return wealth;
         }
