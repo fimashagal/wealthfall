@@ -141,7 +141,7 @@
             document.querySelector('.spinner').style.display = 'none';
             this.matter.world.setBounds();
             this.wealth = [];
-            this.add.image(width/2, 545, 'stars');
+            this.add.image(width/2, quartHeight*2, 'stars');
             for (let i = 0; i < 26; i += 1){
                 let wealthIndex = Phaser.Math.Between(0, 9);
                 let {image, scoreProfit, scoreDamage} = wealthPreset[wealthIndex];
