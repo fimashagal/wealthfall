@@ -141,25 +141,8 @@
             document.querySelector('.spinner').style.display = 'none';
             this.matter.world.setBounds();
             this.wealth = [];
-            this.add.image(width/2, quartHeight*2, 'stars');
-            for (let i = 0; i < 26; i += 1){
-                let wealthIndex = Phaser.Math.Between(0, 9);
-                let {image, scoreProfit, scoreDamage} = wealthPreset[wealthIndex];
-                let wealthItem = this.matter.add.image(
-                    Phaser.Math.Between(0, width),
-                    Phaser.Math.Between(80, quartHeight * 3),
-                    image
-                );
-                wealthItem.setInteractive();
-                wealthItem.setDataEnabled();
-                wealthItem.data.set('profit', scoreProfit);
-                wealthItem.data.set('damage', scoreDamage);
-                wealthItem.on('pointerdown', function () {
-                    score.add(wealthItem.data.get('profit'));
-                    wealthToStart(this);
-                });
-                this.wealth.push(wealthItem);
-            }
+            this.add.image(width / 2, quartHeight * 2, 'stars');
+            for (let i = 0; i < 26; i += 1) genWealth();
         }
 
         create = create.bind(game);
@@ -183,6 +166,26 @@
             wealth.y = Phaser.Math.Between(0, (quartHeight - 80));
             return wealth;
         }
+
+        function genWealth(wealthIndex = Phaser.Math.Between(0, 9)) {
+            let {image, scoreProfit, scoreDamage} = wealthPreset[wealthIndex];
+            let wealthItem = this.matter.add.image(
+                Phaser.Math.Between(0, width),
+                Phaser.Math.Between(80, quartHeight * 3),
+                image
+            );
+            wealthItem.setInteractive();
+            wealthItem.setDataEnabled();
+            wealthItem.data.set('profit', scoreProfit);
+            wealthItem.data.set('damage', scoreDamage);
+            wealthItem.on('pointerdown', function () {
+                score.add(wealthItem.data.get('profit'));
+                wealthToStart(this);
+            });
+            this.wealth.push(wealthItem);
+        }
+
+        genWealth = genWealth.bind(game);
 
     }
 
