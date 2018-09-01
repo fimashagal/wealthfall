@@ -171,7 +171,7 @@
             };
             for (let i = 0; i < 26; i += 1){
                 let wealthIndex = Phaser.Math.Between(0, 9);
-                let {image, scoreProfit, scoreDamage, role} = wealthPreset[wealthIndex];
+                let {image, scoreProfit, scoreDamage, role, bounce} = wealthPreset[wealthIndex];
                 let wealthItem = this.matter.add.image(
                     Phaser.Math.Between(0, width),
                     Phaser.Math.Between(80, quartHeight * 3),
@@ -183,12 +183,7 @@
                 data.set('profit', scoreProfit);
                 data.set('damage', scoreDamage);
                 data.set('role', role);
-                if(role === "gem"){
-                    wealthItem.setBounce(1.05);
-                }
-                if(role === "scull"){
-                    wealthItem.setBounce(.5);
-                }
+                wealthItem.setBounce(bounce);
                 wealthItem.on('pointerdown', function () {
                     let role = data.get('role');
                     self.soundFx[role].play();
@@ -229,17 +224,13 @@
             let wealthIndex = role === "gem"
                     ? Phaser.Math.Between(0, 4)
                     : Phaser.Math.Between(5, 9);
-            let {image, scoreProfit, scoreDamage} = wealthPreset[wealthIndex];
+            let {image, scoreProfit, scoreDamage, role, bounce} = wealthPreset[wealthIndex];
             wealth.setTexture(image);
             let {data} = wealth;
             data.set('profit', scoreProfit);
             data.set('damage', scoreDamage);
-            if(role === "gem"){
-                wealth.setBounce(1.05);
-            }
-            if(role === "scull"){
-                wealth.setBounce(.5);
-            }
+            data.set('role', role);
+            wealth.setBounce(bounce);
             return wealth;
         }
 
