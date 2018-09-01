@@ -4,20 +4,16 @@
     swInit();
 
     function dbInit(callback = new Function) {
-        try {
-            localforage.getItem('wealthfall')
-                .then(function(value) {
-                    !value
-                        ? localforage.setItem('wealthfall', 0).then(callback)
-                        : callback(value);
-                }).catch(function(err) {
-                console.log(err);
+
+        localforage.getItem('wealthfall')
+            .then(function(value) {
+                !value
+                    ? localforage.setItem('wealthfall', 0).then(callback)
+                    : callback(value);
+            }).catch(function(err) {
+                console.warn(err);
                 callback(0);
             });
-        } catch (err) {
-            console.warn(err);
-            callback(0);
-        }
 
     }
 
@@ -134,8 +130,9 @@
         });
 
         function preload(){
-            let pathGem = index => `./../assets/images/wealth.${index}.png`;
-            for(let i = 0; i < 10; i++) this.load.image(`wealth-${i}`, pathGem(i));
+            let pathWealth = index => `./../assets/images/wealth.${index}.png`;
+            for(let i = 0; i < 10; i++) this.load.image(`wealth-${i}`, pathWealth(i));
+            this.load.image(`stars`, `./../assets/images/stars.jpg`);
         }
         preload = preload.bind(game);
 
@@ -144,15 +141,16 @@
             document.querySelector('.spinner').style.display = 'none';
             this.matter.world.setBounds();
             this.wealth = [];
+            this.add.image(width/2, innerHeight/2, 'stars');
             for (let i = 0; i < 26; i += 1){
                 let wealthIndex = Phaser.Math.Between(0, 9);
                 let {image, scoreProfit, scoreDamage} = wealthPreset[wealthIndex];
-
                 let wealthItem = this.matter.add.image(
                     Phaser.Math.Between(0, width),
-                    Phaser.Math.Between(80, quartHeight*3),
+                    Phaser.Math.Between(80, quartHeight * 3),
                     image
-                ).setInteractive();
+                );
+                wealthItem.setInteractive();
                 wealthItem.setDataEnabled();
                 wealthItem.data.set('profit', scoreProfit);
                 wealthItem.data.set('damage', scoreDamage);
@@ -174,10 +172,11 @@
                     score.add(wealthItem.data.get('damage'));
                     wealthToStart(wealthItem);
                 }
-
             }
         }
+
         update = update.bind(game);
+
 
         function wealthToStart(wealth){
             wealth.x = Phaser.Math.Between(0, width);
