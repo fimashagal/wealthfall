@@ -1,15 +1,17 @@
 "use strict";
 (function () {
 
-    dbInit();
     swInit();
 
-    function dbInit() {
+    function dbInit(callback = new Function) {
         localforage.getItem('wealthfall')
             .then(function(value) {
-                console.log(value);
+                !value
+                    ? localforage.setItem('wealthfall', 0).then(callback)
+                    : callback(value);
             }).catch(function(err) {
                 console.log(err);
+                callback(0);
             });
     }
 
@@ -18,16 +20,16 @@
         window.addEventListener("load", function () {
             navigator.serviceWorker
                 .register("/sw.js")
-                .then((registration) => {
-                    console.log("SW registration done with scope: ", registration.scope);
-                    phaserInit();
-                })
-                .catch(err => console.warn(err));
+                .then((registration) => console.log("SW done. Scope: ", registration.scope))
+                .catch(err => console.warn(err))
+                .finally(() => {
+                    dbInit(phaserInit);
+                });
         });
     }
 
 
-    function phaserInit() {
+    function phaserInit(lastScore) {
         let {innerWidth, innerHeight} = window;
         let width = innerWidth < 640 ? innerWidth : 640;
         const quartHeight = (innerHeight * 2) / 4;
@@ -87,7 +89,7 @@
 
         const score = {
             el: document.querySelector('.score'),
-            value: 0,
+            value: lastScore ? lastScore : 0,
             add(value){
                 this.value += value;
                 if(this.value < 0) this.value = 0;
