@@ -126,7 +126,7 @@
                 default: 'matter',
                 matter: {
                     gravity: {
-                        y: .175
+                        y: .15
                     },
                     enableSleep: true,
                     debug: false
@@ -202,7 +202,7 @@
         function placeWealthToStart(wealth){
             wealth.x = Phaser.Math.Between(0, width);
             wealth.y = Phaser.Math.Between(0, (quartHeight - 80));
-            if(wealth.data.get('role') === "scull") wealth.setVelocityY(2);
+            if(wealth.data.get('role') === "scull") wealth.setVelocityY(4);
             return wealth;
         }
 
