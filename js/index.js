@@ -4,15 +4,21 @@
     swInit();
 
     function dbInit(callback = new Function) {
-        localforage.getItem('wealthfall')
-            .then(function(value) {
-                !value
-                    ? localforage.setItem('wealthfall', 0).then(callback)
-                    : callback(value);
-            }).catch(function(err) {
+        try {
+            localforage.getItem('wealthfall')
+                .then(function(value) {
+                    !value
+                        ? localforage.setItem('wealthfall', 0).then(callback)
+                        : callback(value);
+                }).catch(function(err) {
                 console.log(err);
                 callback(0);
             });
+        } catch (err) {
+            console.warn(err);
+            callback(0);
+        }
+
     }
 
     function swInit() {
