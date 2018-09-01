@@ -1,19 +1,28 @@
 "use strict";
 (function () {
 
+    dbInit();
     swInit();
+
+    function dbInit() {
+        localforage.getItem('wealthfall')
+            .then(function(value) {
+                console.log(value);
+            }).catch(function(err) {
+                console.log(err);
+            });
+    }
 
     function swInit() {
         if (!"serviceWorker" in navigator) return;
         window.addEventListener("load", function () {
-            navigator.serviceWorker.register("/sw.js")
+            navigator.serviceWorker
+                .register("/sw.js")
                 .then((registration) => {
                     console.log("SW registration done with scope: ", registration.scope);
                     phaserInit();
                 })
-                .catch(err => {
-                    console.warn(err);
-                });
+                .catch(err => console.warn(err));
         });
     }
 
@@ -135,7 +144,6 @@
                     image
                 ).setInteractive();
                 wealthItem.setDataEnabled();
-                wealthItem.setBounce(1.1);
                 wealthItem.data.set('profit', scoreProfit);
                 wealthItem.data.set('damage', scoreDamage);
                 wealthItem.on('pointerdown', function () {
