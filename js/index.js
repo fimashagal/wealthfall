@@ -174,9 +174,9 @@
                 data.set('damage', scoreDamage);
                 data.set('role', role);
                 wealthItem.on('pointerdown', function () {
-                    let role = this.data.get('role');
+                    let role = data.get('role');
                     self.soundFx[role].play();
-                    score.add(wealthItem.data.get('profit'));
+                    score.add(data.get('profit'));
                     mutateWealth(this, role);
                     placeWealthToStart(this);
                 });
