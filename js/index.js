@@ -185,7 +185,6 @@
 
         create = create.bind(game);
 
-
         function update() {
             for(let wealthItem of this.wealth){
                 wealthItem.angle = 0;
