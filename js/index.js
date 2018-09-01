@@ -143,15 +143,22 @@
             let pathWealth = index => `./../assets/images/wealth.${index}.png`;
             for(let i = 0; i < 10; i++) this.load.image(`wealth-${i}`, pathWealth(i));
             this.load.image(`stars`, `./../assets/images/stars.jpg`);
+            this.load.audio('skull', './../assets/audio/skull.mp3');
+            this.load.audio('gem', './../assets/audio/gem.mp3');
         }
         preload = preload.bind(game);
 
         function create(){
+            const self = this;
             score.update();
             document.querySelector('.spinner').style.display = 'none';
             this.matter.world.setBounds();
             this.wealth = [];
             this.add.image(width / 2, quartHeight * 2, 'stars');
+            this.soundFx = {
+                gem: this.sound.add('gem'),
+                skull: this.sound.add('skull')
+            };
             for (let i = 0; i < 26; i += 1){
                 let wealthIndex = Phaser.Math.Between(0, 9);
                 let {image, scoreProfit, scoreDamage, role} = wealthPreset[wealthIndex];
@@ -166,8 +173,10 @@
                 wealthItem.data.set('damage', scoreDamage);
                 wealthItem.data.set('role', role);
                 wealthItem.on('pointerdown', function () {
+                    let role = this.data.get('role');
                     score.add(wealthItem.data.get('profit'));
-                    mutateWealth(this, this.data.get('role'));
+                    self.soundFx[role].play();
+                    mutateWealth(this, role);
                     placeWealthToStart(this);
                 });
                 this.wealth.push(wealthItem);
