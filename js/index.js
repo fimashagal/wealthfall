@@ -204,9 +204,6 @@
                     score.add(wealthItem.data.get('damage'));
                     placeWealthToStart(wealthItem);
                 }
-                if(wealthItem.data.get('role') === "scull") {
-                    wealthItem.x = Phaser.Math.Between(wealthItem.x - 1, wealthItem.x + 1);
-                }
             }
         }
 
