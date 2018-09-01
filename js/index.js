@@ -143,7 +143,7 @@
             let pathWealth = index => `./../assets/images/wealth.${index}.png`;
             for(let i = 0; i < 10; i++) this.load.image(`wealth-${i}`, pathWealth(i));
             this.load.image(`stars`, `./../assets/images/stars.jpg`);
-            this.load.audio('skull', './../assets/audio/skull.mp3');
+            this.load.audio('scull', './../assets/audio/scull.mp3');
             this.load.audio('gem', './../assets/audio/gem.mp3');
         }
         preload = preload.bind(game);
@@ -157,7 +157,7 @@
             this.add.image(width / 2, quartHeight * 2, 'stars');
             this.soundFx = {
                 gem: this.sound.add('gem'),
-                skull: this.sound.add('skull')
+                scull: this.sound.add('scull')
             };
             for (let i = 0; i < 26; i += 1){
                 let wealthIndex = Phaser.Math.Between(0, 9);
