@@ -197,7 +197,7 @@
         }
 
         function mutateWealth(wealth, role) {
-            let wealthIndex = role === "gem" ? Phaser.Math.Between(0, 4) : Phaser.Math.Between(4, 9);
+            let wealthIndex = role === "gem" ? Phaser.Math.Between(0, 4) : Phaser.Math.Between(5, 9);
             let {image, scoreProfit, scoreDamage} = wealthPreset[wealthIndex];
             wealth.setTexture(image);
             wealth.data.set('profit', scoreProfit);
