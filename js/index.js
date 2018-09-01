@@ -224,7 +224,7 @@
             let wealthIndex = role === "gem"
                     ? Phaser.Math.Between(0, 4)
                     : Phaser.Math.Between(5, 9);
-            let {image, scoreProfit, scoreDamage, role, bounce} = wealthPreset[wealthIndex];
+            let {image, scoreProfit, scoreDamage, bounce} = wealthPreset[wealthIndex];
             wealth.setTexture(image);
             let {data} = wealth;
             data.set('profit', scoreProfit);
