@@ -169,7 +169,7 @@
 
         function genWealth(wealthIndex = Phaser.Math.Between(0, 9)) {
             let {image, scoreProfit, scoreDamage} = wealthPreset[wealthIndex];
-            let wealthItem = this.matter.add.image(
+            let wealthItem = game.matter.add.image(
                 Phaser.Math.Between(0, width),
                 Phaser.Math.Between(80, quartHeight * 3),
                 image
@@ -182,10 +182,10 @@
                 score.add(wealthItem.data.get('profit'));
                 wealthToStart(this);
             });
-            this.wealth.push(wealthItem);
+            game.wealth.push(wealthItem);
         }
 
-        genWealth = genWealth.bind(game);
+
 
     }
 
