@@ -188,7 +188,7 @@
         function mutateWealth(wealth) {
             let wealthIndex = Phaser.Math.Between(0, 9);
             let {image, scoreProfit, scoreDamage} = wealthPreset[wealthIndex];
-            wealth.image = image;
+            wealth.setTexture(image);
             wealth.data.set('profit', scoreProfit);
             wealth.data.set('damage', scoreDamage);
             return wealth;
