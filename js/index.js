@@ -31,7 +31,7 @@
 
     function phaserInit(lastScore) {
         let {innerWidth, innerHeight} = window;
-        let width = innerWidth < 640 ? innerWidth : 640;
+        let width = innerWidth < 560 ? innerWidth : 560;
         const quartHeight = (innerHeight * 2) / 4;
         const wealthPreset = {
             0: {
@@ -139,7 +139,7 @@
             this.wealth = [];
             for (let i = 0; i < 26; i += 1){
                 let wealthIndex = Phaser.Math.Between(0, 9);
-                let {image, scoreProfit, scoreDamage, velocityY} = wealthPreset[wealthIndex];
+                let {image, scoreProfit, scoreDamage} = wealthPreset[wealthIndex];
 
                 let wealthItem = this.matter.add.image(
                     Phaser.Math.Between(0, width),
