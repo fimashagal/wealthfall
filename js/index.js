@@ -202,7 +202,9 @@
         function placeWealthToStart(wealth){
             wealth.x = Phaser.Math.Between(0, width);
             wealth.y = Phaser.Math.Between(0, (quartHeight - 80));
-            if(wealth.data.get('role') === "scull") wealth.setVelocityY(4);
+            if(wealth.data.get('role') === "scull") {
+                wealth.setVelocityY(6);
+            }
             return wealth;
         }
 
