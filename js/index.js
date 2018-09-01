@@ -174,10 +174,10 @@
                 data.set('damage', scoreDamage);
                 data.set('role', role);
                 if(role === "gem"){
-                    wealthItem.setBounce(1.1);
+                    wealthItem.setBounce(1.05);
                 }
                 if(role === "scull"){
-                    wealthItem.setBounce(1);
+                    wealthItem.setBounce(.5);
                 }
                 wealthItem.on('pointerdown', function () {
                     let role = data.get('role');
@@ -209,8 +209,8 @@
             wealth.x = Phaser.Math.Between(0, width);
             wealth.y = Phaser.Math.Between(0, (quartHeight - 80));
             if(wealth.data.get('role') === "scull") {
-                wealth.setVelocityY(Phaser.Math.Between(6, 24));
-                wealth.setVelocityX(Phaser.Math.Between(-12, 12));
+                wealth.setVelocityY(Phaser.Math.Between(6, 14));
+                wealth.setVelocityX(Phaser.Math.Between(-8, 8));
             }
             return wealth;
         }
@@ -225,10 +225,10 @@
             data.set('profit', scoreProfit);
             data.set('damage', scoreDamage);
             if(role === "gem"){
-                wealth.setBounce(1.1);
+                wealth.setBounce(1.05);
             }
             if(role === "scull"){
-                wealth.setBounce(1);
+                wealth.setBounce(.5);
             }
             return wealth;
         }
