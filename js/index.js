@@ -4,27 +4,35 @@
     swInit();
 
     function dbInit(callback = new Function) {
-        localforage.getItem('wealthfall')
-            .then(function(value) {
-                !value
-                    ? localforage.setItem('wealthfall', 0).then(callback)
-                    : callback(value);
-            }).catch(function(err) {
+        try {
+            localforage.getItem('wealthfall')
+                .then(function(value) {
+                    !value
+                        ? localforage.setItem('wealthfall', 0).then(callback)
+                        : callback(value);
+                }).catch(function(err) {
                 console.log(err);
                 callback(0);
             });
+        } catch (err) {
+            console.warn(err);
+        } finally {
+            callback(0);
+        }
+
     }
 
     function swInit() {
-        if (!"serviceWorker" in navigator) return;
+        if (!"serviceWorker" in navigator) {
+            dbInit(phaserInit);
+            return;
+        }
         window.addEventListener("load", function () {
             navigator.serviceWorker
                 .register("/sw.js")
                 .then((registration) => console.log("SW done. Scope: ", registration.scope))
                 .catch(err => console.warn(err))
-                .finally(() => {
-                    dbInit(phaserInit);
-                });
+                .finally(() => dbInit(phaserInit));
         });
     }
 

@@ -7,4 +7,6 @@ toolbox.precache([
     "js/phaser.min.js"
 ]);
 toolbox.router.get("/assets/*", toolbox.cacheFirst);
-toolbox.router.get("/*", toolbox.networkFirst, { networkTimeoutSeconds: 5 });
+toolbox.router.get("/*", toolbox.networkFirst, {
+    networkTimeoutSeconds: 5
+});
