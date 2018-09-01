@@ -218,10 +218,10 @@
             wealth.y = Phaser.Math.Between(0, (quartHeight - 80));
             if(wealth.data.get('role') === "scull") {
 
-                wealth.setVelocityY(Phaser.Math.Between(2, 6));
-                wealth.setVelocityX(Phaser.Math.Between(-6, 6));
+                wealth.setVelocityY(Phaser.Math.Between(2, 7));
+                wealth.setVelocityX(Phaser.Math.Between(-7, 7));
                 setTimeout(() => {
-                    wealth.setVelocityX(Phaser.Math.Between(-6, 6));
+                    wealth.setVelocityX(Phaser.Math.Between(-7, 7));
                 }, Phaser.Math.Between(100, 1500));
             }
             return wealth;
