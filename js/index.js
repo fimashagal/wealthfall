@@ -204,6 +204,9 @@
                     score.add(wealthItem.data.get('damage'));
                     placeWealthToStart(wealthItem);
                 }
+                if(wealthItem.data.get('role') === "scull") {
+                    wealthItem.x = Phaser.Math.Between(wealthItem.x - 1, wealthItem.x + 1);
+                }
             }
         }
 
@@ -214,6 +217,7 @@
             wealth.x = Phaser.Math.Between(0, width);
             wealth.y = Phaser.Math.Between(0, (quartHeight - 80));
             if(wealth.data.get('role') === "scull") {
+
                 wealth.setVelocityY(Phaser.Math.Between(2, 6));
                 wealth.setVelocityX(Phaser.Math.Between(-6, 6));
                 setTimeout(() => {
