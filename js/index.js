@@ -203,8 +203,8 @@
             wealth.x = Phaser.Math.Between(0, width);
             wealth.y = Phaser.Math.Between(0, (quartHeight - 80));
             if(wealth.data.get('role') === "scull") {
-                wealth.setVelocityY(6);
-                wealth.setVelocityX(Phaser.Math.Between(-4, 4));
+                wealth.setVelocityY(Phaser.Math.Between(6, 18));
+                wealth.setVelocityX(Phaser.Math.Between(-8, 8));
             }
             return wealth;
         }
