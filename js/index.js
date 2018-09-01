@@ -40,53 +40,63 @@
             0: {
                 image: "wealth-0",
                 scoreProfit: 10,
-                scoreDamage: -14
+                scoreDamage: -14,
+                role: "gem"
             },
             1: {
                 image: "wealth-1",
                 scoreProfit: 14,
-                scoreDamage: -13
+                scoreDamage: -13,
+                role: "gem"
             },
             2: {
                 image: "wealth-2",
                 scoreProfit: 16,
-                scoreDamage: -12
+                scoreDamage: -12,
+                role: "gem"
             },
             3: {
                 image: "wealth-3",
                 scoreProfit: 18,
-                scoreDamage: -11
+                scoreDamage: -11,
+                role: "gem"
             },
             4: {
                 image: "wealth-4",
                 scoreProfit: 20,
-                scoreDamage: -10
+                scoreDamage: -10,
+                role: "gem"
             },
             5: {
                 image: "wealth-5",
                 scoreProfit: -50,
-                scoreDamage: 0
+                scoreDamage: 0,
+                role: "scull"
             },
             6: {
                 image: "wealth-6",
                 scoreProfit: -125,
-                scoreDamage: 0
+                scoreDamage: 0,
+                role: "scull"
             },
             7: {
                 image: "wealth-7",
                 scoreProfit: -250,
-                scoreDamage: 0
+                scoreDamage: 0,
+                role: "scull"
             },
             8: {
                 image: "wealth-8",
                 scoreProfit: -500,
-                scoreDamage: 0
+                scoreDamage: 0,
+                role: "scull"
             },
             9: {
                 image: "wealth-9",
                 scoreProfit: -1000,
                 scoreDamage: 0,
-                velocityY: 20
+                velocityY: 20,
+                role: "scull"
             }
         };
 
@@ -144,7 +154,7 @@
             this.add.image(width / 2, quartHeight * 2, 'stars');
             for (let i = 0; i < 26; i += 1){
                 let wealthIndex = Phaser.Math.Between(0, 9);
-                let {image, scoreProfit, scoreDamage} = wealthPreset[wealthIndex];
+                let {image, scoreProfit, scoreDamage, role} = wealthPreset[wealthIndex];
                 let wealthItem = this.matter.add.image(
                     Phaser.Math.Between(0, width),
                     Phaser.Math.Between(80, quartHeight * 3),
@@ -154,9 +164,10 @@
                 wealthItem.setDataEnabled();
                 wealthItem.data.set('profit', scoreProfit);
                 wealthItem.data.set('damage', scoreDamage);
+                wealthItem.data.set('role', role);
                 wealthItem.on('pointerdown', function () {
                     score.add(wealthItem.data.get('profit'));
-                    mutateWealth(this);
+                    mutateWealth(this, this.data.get('role'));
                     placeWealthToStart(this);
                 });
                 this.wealth.push(wealthItem);
@@ -185,8 +196,8 @@
             return wealth;
         }
 
-        function mutateWealth(wealth) {
-            let wealthIndex = Phaser.Math.Between(0, 9);
+        function mutateWealth(wealth, role) {
+            let wealthIndex = role === "gem" ? Phaser.Math.Between(0, 4) : Phaser.Math.Between(5, 9);
             let {image, scoreProfit, scoreDamage} = wealthPreset[wealthIndex];
             wealth.setTexture(image);
             wealth.data.set('profit', scoreProfit);
