@@ -186,7 +186,7 @@
                 wealthItem.setBounce(bounce);
                 if(role === "scull"){
                     this.time.addEvent({
-                        delay: 500,
+                        delay: 250,
                         callback(){
                             wealthItem.setVelocityY(Phaser.Math.Between(3, 5));
                             wealthItem.setVelocityX(Phaser.Math.Between(-7, 7));
@@ -225,7 +225,6 @@
         }
 
         update = update.bind(game);
-
 
         function placeWealthToStart(wealth){
             wealth.x = Phaser.Math.Between(0, width);
