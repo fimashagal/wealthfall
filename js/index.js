@@ -216,7 +216,7 @@
                     score.add(wealthItem.data.get('damage'));
                     placeWealthToStart(wealthItem);
                 } else {
-                    for(let key of [x, y]) {
+                    for(let key of ['x', 'y']) {
                         wealthItem[key] = Phaser.Math.Between(wealthItem[key] - 1, wealthItem[key] + 1);
                     }
                 }
