@@ -215,8 +215,13 @@
                 if(wealthItem.y >= (quartHeight * 3) + 80){
                     score.add(wealthItem.data.get('damage'));
                     placeWealthToStart(wealthItem);
+                } else {
+                    for(let key of [x, y]) {
+                        wealthItem[key] = Phaser.Math.Between(wealthItem[key] - 1, wealthItem[key] + 1);
+                    }
                 }
             }
+
         }
 
         update = update.bind(game);
