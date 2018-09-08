@@ -217,7 +217,9 @@
                     placeWealthToStart(wealthItem);
                 } else {
                     for(let key of ['x', 'y']) {
-                        wealthItem[key] = Phaser.Math.Between(wealthItem[key] - 1, wealthItem[key] + 1);
+                        if(wealthItem.data.get('role') === "scull"){
+                            wealthItem[key] = Phaser.Math.Between(wealthItem[key] - 1, wealthItem[key] + 1);
+                        }
                     }
                 }
             }
