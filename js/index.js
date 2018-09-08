@@ -184,6 +184,18 @@
                 data.set('damage', scoreDamage);
                 data.set('role', role);
                 wealthItem.setBounce(bounce);
+                if(role === "scull"){
+                    this.time.addEvent({
+                        delay: 500,
+                        callback(){
+                            wealthItem.setVelocityY(Phaser.Math.Between(3, 5));
+                            wealthItem.setVelocityX(Phaser.Math.Between(-7, 7));
+                        },
+                        callbackScope: this,
+                        loop: true
+                    });
+                }
+
                 wealthItem.on('pointerdown', function () {
                     let role = data.get('role');
                     self.soundFx[role].play();
@@ -214,16 +226,9 @@
             wealth.x = Phaser.Math.Between(0, width);
             wealth.y = Phaser.Math.Between(0, (quartHeight - 80));
             if(wealth.data.get('role') === "scull") {
-
                 wealth.setVelocityY(Phaser.Math.Between(2, 7));
                 wealth.setVelocityX(Phaser.Math.Between(-7, 7));
-                setTimeout(() => {
-                    wealth.setVelocityX(Phaser.Math.Between(-7, 7));
-                }, Phaser.Math.Between(100, 1500));
-                setTimeout(() => {
-                    wealth.setVelocityY(Phaser.Math.Between(3, 5));
-                    wealth.setVelocityX(Phaser.Math.Between(-7, 7));
-                }, Phaser.Math.Between(1510, 2000));
+
             }
             return wealth;
         }
