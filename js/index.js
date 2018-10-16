@@ -1,5 +1,6 @@
 "use strict";
 (function () {
+    window.onerror = event => document.body.textContent += event.message;
 
     swInit();
 
@@ -179,7 +180,7 @@
                 );
                 wealthItem.setInteractive();
                 wealthItem.setDataEnabled();
-                let {data} = wealthItem;
+                let { data } = wealthItem;
                 data.set('profit', scoreProfit);
                 data.set('damage', scoreDamage);
                 data.set('role', role);
