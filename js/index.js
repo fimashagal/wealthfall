@@ -1,6 +1,6 @@
 "use strict";
 (function () {
-    window.onerror = event => document.body.textContent += event.message;
+
 
     swInit();
 
